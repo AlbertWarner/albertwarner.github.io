@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/10/29/acl-file-uploads.html" /><!-- Title, description, author --><title>ACL File Uploads | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="ACL File Uploads | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/10/29/acl-file-uploads.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>ACL File Uploads</h2>
+				<p>29 October 2018</p>
+			</header><p>This was an interesting start, we had a problem with the file uploads :</p>
+
+<p>1)	They did not allow multiple files to be uploaded</p>
+
+<p>2)	They got the name of the input fields but would overwrite each other when a new file was uploaded because they had the same name.</p>
+
+<p>3)	Every time a user wanted to upload a file or files, they had to press the submit button, this functionality was not good, the client or maintenance user would need to log in multiple times because when they submit a claim form, they are logged out automatically.</p>
+
+<p>I found online <a href="https://www.taniarascia.com/how-to-upload-files-to-a-server-with-plain-javascript-and-php/"> how to uploads files to a server guide </a>. This helped a lot and the guidance to use a for loop on the PHP to upload files was really helpful.</p>
+
+<h3>File upload in php -Aircraft Controller </h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nv">$errors</span> <span class="o">=</span> <span class="p">[];</span>
+            <span class="nv">$AclNum</span> <span class="o">=</span> <span class="nx">clean_input</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'AclNum'</span><span class="p">]);</span>
+            <span class="nv">$Inputname</span> <span class="o">=</span> <span class="nx">clean_input</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'filenames'</span><span class="p">]);</span>
+            <span class="nv">$path</span> <span class="o">=</span> <span class="s1">'/uploads/'</span><span class="p">;</span>
+            <span class="nv">$rootDir</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dirname</span><span class="p">(</span><span class="nx">__DIR__</span><span class="p">));</span>
+            <span class="nv">$extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'jpeg'</span><span class="p">,</span><span class="s1">'jpg'</span><span class="p">,</span><span class="s1">'png'</span><span class="p">,</span><span class="s1">'pdf'</span><span class="p">,</span><span class="s1">'docx'</span><span class="p">,</span><span class="s1">'xlsx'</span><span class="p">,</span><span class="s1">'JPEG'</span><span class="p">,</span><span class="s1">'JPG'</span><span class="p">,</span><span class="s1">'PNG'</span><span class="p">,</span><span class="s1">'PDF'</span><span class="p">,</span><span class="s1">'DOCX'</span><span class="p">,</span><span class="s1">'XLSX'</span><span class="p">];</span>
+    
+            <span class="nv">$all_files</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">'files'</span><span class="p">][</span><span class="s1">'name'</span><span class="p">]);</span>
+            
+            <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$all_files</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  
+                <span class="nv">$file_name</span> <span class="o">=</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s1">'files'</span><span class="p">][</span><span class="s1">'name'</span><span class="p">][</span><span class="nv">$i</span><span class="p">];</span>
+                <span class="nv">$file_tmp</span> <span class="o">=</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s1">'files'</span><span class="p">][</span><span class="s1">'tmp_name'</span><span class="p">][</span><span class="nv">$i</span><span class="p">];</span>
+                <span class="nv">$file_type</span> <span class="o">=</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s1">'files'</span><span class="p">][</span><span class="s1">'type'</span><span class="p">][</span><span class="nv">$i</span><span class="p">];</span>
+                <span class="nv">$file_size</span> <span class="o">=</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s1">'files'</span><span class="p">][</span><span class="s1">'size'</span><span class="p">][</span><span class="nv">$i</span><span class="p">];</span>
+                <span class="nv">$tmp</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span> <span class="nv">$file_name</span><span class="p">);</span>
+                <span class="nv">$file_ext</span> <span class="o">=</span> <span class="nb">strtolower</span><span class="p">(</span><span class="nb">end</span><span class="p">(</span><span class="nv">$tmp</span><span class="p">));</span>
+                <span class="c1">//$file_ext = strtolower(end(explode('.', $_FILES['files']['name'][$i])));</span>
+               
+                <span class="nv">$newName</span> <span class="o">=</span> <span class="nv">$Inputname</span> <span class="o">.</span> <span class="s2">"(</span><span class="nv">$i</span><span class="s2">)"</span><span class="p">;</span>
+                <span class="c1">//$file = $path. "studentinfo($i).".$file_ext;</span>
+                <span class="nv">$file</span> <span class="o">=</span> <span class="nv">$path</span><span class="o">.</span> <span class="nv">$newName</span> <span class="o">.</span><span class="nv">$file_ext</span><span class="p">;</span>
+
+                <span class="nv">$file</span> <span class="o">=</span> <span class="nv">$rootDir</span> <span class="o">.</span> <span class="nv">$path</span> <span class="o">.</span> <span class="nv">$AclNum</span> <span class="o">.</span> <span class="s2">"-"</span> <span class="o">.</span> <span class="nv">$newName</span> <span class="o">.</span> <span class="s2">"."</span> <span class="o">.</span> <span class="nv">$file_ext</span><span class="p">;</span>
+    
+                <span class="c1">//$file = $path . $file_name;</span>
+    
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$file_ext</span><span class="p">,</span> <span class="nv">$extensions</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="nv">$errors</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">'Extension not allowed: '</span> <span class="o">.</span> <span class="nv">$file_name</span> <span class="o">.</span> <span class="s1">' '</span> <span class="o">.</span> <span class="nv">$file_type</span><span class="p">;</span>
+                <span class="p">}</span>
+    
+                <span class="k">if</span> <span class="p">(</span><span class="nv">$file_size</span> <span class="o">&gt;</span> <span class="mi">5242880</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nv">$errors</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">'File size exceeds limit: '</span> <span class="o">.</span> <span class="nv">$file_name</span> <span class="o">.</span> <span class="s1">' '</span> <span class="o">.</span> <span class="nv">$file_type</span><span class="p">;</span>
+                <span class="p">}</span>
+    
+                <span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$errors</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="nb">move_uploaded_file</span><span class="p">(</span><span class="nv">$file_tmp</span><span class="p">,</span> <span class="nv">$file</span><span class="p">);</span>
+                    <span class="c1">//chmod($file,0770);//Sets the persmissions of the uploaded file so it can be deleted</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+</code></pre></div></div>
+<p>With the guide, we set up a nice button for each upload section and it was working great, uploading multiple files to the server. This was working on my test but then I moved it to the actual ACL forms there are multiple upload sections and it all failed, nothing worked, the external JS file that I created like the guide indicated didn’t work, it all fell over.</p>
+
+<p>I tried a few ways on the net but eventually I asked Adon and he help find the link to <a href="https://stackoverflow.com/questions/19295746/how-to-upload-multiple-files-using-php-jquery-and-ajax"> uploading files using ajax ,php , jquery </a></p>
+
+<h3>Ajax Uploading Files </h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;script&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'body'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="s1">'.upload'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+            <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+            <span class="kd">var</span> <span class="nx">formData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">parents</span><span class="p">(</span><span class="s1">'form'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]);</span>
+            <span class="kd">var</span> <span class="nx">formData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">();</span>  
+
+            <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+                <span class="na">url</span><span class="p">:</span> <span class="s1">'./controllers/aircraftController.php'</span><span class="p">,</span>
+                <span class="na">type</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+                <span class="na">xhr</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                    <span class="kd">var</span> <span class="nx">myXhr</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">ajaxSettings</span><span class="p">.</span><span class="nx">xhr</span><span class="p">();</span>
+                    <span class="k">return</span> <span class="nx">myXhr</span><span class="p">;</span>
+                <span class="p">},</span>
+                <span class="na">success</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="c1">//alert("Data Uploaded: "+data);</span>
+                    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Files Uploaded "</span><span class="p">);</span>
+                    <span class="nx">$</span><span class="p">(</span><span class="nx">parent</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">"input[type=file]"</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s2">""</span><span class="p">);</span>
+                    
+                <span class="p">},</span>
+                <span class="na">data</span><span class="p">:</span> <span class="nx">formData</span><span class="p">,</span>
+                <span class="na">cache</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="na">contentType</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="na">processData</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">});</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">});</span>
+    <span class="p">});</span>
+ 
+  <span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>Ajax to the rescue again, this was awesome the files were uploading but my fun would not last for long I copied the new uploads section to another uploads field and to another and thought let’s test this. What a disappointment, after attaching files and pressing the uploads button nothing happened, but if I pressed the very first upload button I created, all the files would upload but with the wrong name. I spoke to Adon and we would look into the problem asap.</p>
+
+<h3>Reflection</h3>
+
+<p>Great learning how to use ajax to upload files and see it working, even though it is not correct. Almost there. The guide I found was good and informative. Solved all 3 problems at the beginning of the post in 2 days, good feeling getting things almost completed.</p>
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

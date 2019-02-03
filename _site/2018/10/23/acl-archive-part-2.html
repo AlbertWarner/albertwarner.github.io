@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/10/23/acl-archive-part-2.html" /><!-- Title, description, author --><title>ACL Archive part 2   | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="ACL Archive part 2   | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/10/23/acl-archive-part-2.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>ACL Archive part 2  </h2>
+				<p>23 October 2018</p>
+			</header><p>In the first post, I just stated that I created the archive feature, and this just did a query on the database and displayed the information in a new tab called archive list. The whole reason for the archive list is for Derek to archive his old claim forms and I stated the best way to do this is by implementing a 1 or 0 feature.</p>
+
+<p>First, I tested by creating a button feature, there would be a hidden input with the ID of the claim form stored in the name tag. When the button is pressed it would call a controller that would do an update query on a field in DB according to the claims forms ID passed through. Then use a select query to get information of that particular field in the DB and use an if statement to check if its 1 display on the index page and if 0 display on the archive page.</p>
+
+<p>This sort of worked because when I printed the ID from the controller, it did not print 1 ID requested, it printed all the ID’s to screen. It could have something to do with the foreach that is used to display all the information to the user.</p>
+
+<p>The solution is to use a feature that was already created for the admin form and client form. Both these pages get the ID passed to them and they do a query to get the form being requested and then display it to the user. I use this feature to pass the ID to a query that does an update to a column in the DB with either 1 or 0, let me show what I mean.</p>
+
+<h3>Archive Page Displayed to User </h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span> <span class="k">foreach</span><span class="p">(</span><span class="nv">$claimResult</span> <span class="k">as</span> <span class="nv">$claimList</span><span class="p">){</span>
+                            <span class="nv">$directory</span> <span class="o">=</span> <span class="s1">'../adminForm.php?id='</span><span class="p">;</span>
+                            <span class="nv">$directory2</span> <span class="o">=</span> <span class="s1">'../controllers/archivemove.php?id='</span><span class="p">;</span>
+                            <span class="nv">$path</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+                            <span class="k">if</span><span class="p">(</span><span class="nv">$claimList</span><span class="p">[</span><span class="s1">'archiveUpdate'</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">){</span>
+                           <span class="cp">?&gt;</span>
+                               
+                            <span class="nt">&lt;tr&gt;</span>
+                                 
+                                <span class="nt">&lt;td&gt;</span> <span class="cp">&lt;?=</span><span class="nv">$claimList</span><span class="p">[</span><span class="s1">'incidentID'</span><span class="p">];</span><span class="cp">?&gt;</span><span class="nt">&lt;/td&gt;</span>
+                                <span class="nt">&lt;td&gt;</span> <span class="cp">&lt;?=</span><span class="nv">$claimList</span><span class="p">[</span><span class="s1">'INSURANCENAME'</span><span class="p">];</span><span class="cp">?&gt;</span><span class="nt">&lt;/td&gt;</span>
+                                <span class="nt">&lt;td&gt;</span> <span class="cp">&lt;?=</span><span class="nv">$claimList</span><span class="p">[</span><span class="s1">'FIRSTNAME'</span><span class="p">];</span><span class="cp">?&gt;</span><span class="nt">&lt;/td&gt;</span>
+                                <span class="nt">&lt;td&gt;</span> <span class="cp">&lt;?=</span><span class="nv">$claimList</span><span class="p">[</span><span class="s1">'LASTNAME'</span><span class="p">];</span><span class="cp">?&gt;</span><span class="nt">&lt;/td&gt;</span>
+                                <span class="nt">&lt;td&gt;</span> <span class="cp">&lt;?=</span><span class="nv">$claimList</span><span class="p">[</span><span class="s1">'formID'</span><span class="p">];</span><span class="cp">?&gt;</span><span class="nt">&lt;/td&gt;</span>
+                                <span class="nt">&lt;td&gt;</span> <span class="cp">&lt;?=</span><span class="nv">$claimList</span><span class="p">[</span><span class="s1">'LASTUPDATEBY'</span><span class="p">];</span><span class="cp">?&gt;</span><span class="nt">&lt;/td&gt;</span>
+                                <span class="nt">&lt;td&gt;</span> <span class="cp">&lt;?=</span><span class="nv">$claimList</span><span class="p">[</span><span class="s1">'dated'</span><span class="p">];</span><span class="cp">?&gt;</span><span class="nt">&lt;/td&gt;</span>
+                                <span class="nt">&lt;td</span> <span class="nt">&gt;</span> <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-info"</span> <span class="na">href=</span><span class="s">"</span><span class="cp">&lt;?=</span><span class="nv">$directory</span><span class="o">.</span><span class="nv">$claimList</span><span class="p">[</span><span class="s1">'incidentID'</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="s">"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+                                <span class="nt">&lt;td</span> <span class="nt">&gt;</span> <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-info"</span> <span class="na">id=</span><span class="s">"archive"</span> <span class="na">href=</span><span class="s">"</span><span class="cp">&lt;?=</span><span class="nv">$directory2</span><span class="o">.</span><span class="nv">$claimList</span><span class="p">[</span><span class="s1">'incidentID'</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="s">"</span><span class="nt">&gt;</span>Unarchive<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+</code></pre></div></div>
+
+<p>This page displays information from a query and displays it to user. The user selects the archive button which an input field been styled to look like a button. That calls archive move file with the incident ID of the form required.</p>
+
+<h3>Archive Move File </h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$directory</span> <span class="o">=</span> <span class="s1">'archiveController.php'</span><span class="p">;</span>
+            <span class="nv">$id</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">'id'</span><span class="p">];</span>
+            
+            <span class="c1">//select the form from the db based on $id hash</span>
+            <span class="nv">$selectQuery</span> <span class="o">=</span> <span class="s2">"SELECT * FROM incident WHERE id = '</span><span class="nv">$id</span><span class="s2">'"</span><span class="p">;</span>
+            <span class="c1">//get the name... everything else works fine</span>
+            <span class="nv">$form</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$selectQuery</span><span class="p">);</span>
+            <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+            <span class="nv">$formpage</span> <span class="o">=</span> <span class="nv">$form</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">();</span> 
+            <span class="nv">$incidentID</span> <span class="o">=</span> <span class="nv">$formpage</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'id'</span><span class="p">];</span> <span class="c1">// retrieve the name from array </span>
+
+            <span class="nv">$updateQuery</span> <span class="o">=</span> <span class="s2">"UPDATE incident SET
+            archiveUpdate = '0',
+            dateCreated = dateCreated
+            WHERE  id = '</span><span class="nv">$incidentID</span><span class="s2">'"</span><span class="p">;</span> 
+            <span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$updateQuery</span><span class="p">);</span>
+            <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span> 
+
+            <span class="nb">unset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">);</span> 
+            <span class="k">include</span> <span class="nv">$directory</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>The archive move file gets the ID of the incident, which is actually passed through, don’t need the select query to store the incident ID into a variable but it worked so I left the extra step. Then I do an updated to an archiveUpdate column in the DB and call the controller. The controller will query the DB and display all information if the archiveUpdate column had 1 in it and on the index page it exactly the same set up, but it will display all the archiveUpdate column with a 0.</p>
+
+<p>This was cool watching this work, select a button and the entire field disappears from the page. I really enjoyed this.</p>
+
+<h3>Reflection </h3>
+<p>Interesting to see how old code could be used to fix this problem. To see if($claimList[‘archiveUpdate’]&gt;0) function work, inside the foreach loop was great. I did not test it before implementing but glad it worked.</p>
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

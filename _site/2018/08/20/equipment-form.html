@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/08/20/equipment-form.html" /><!-- Title, description, author --><title>Equipment Form | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Equipment Form | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/08/20/equipment-form.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>Equipment Form</h2>
+				<p>20 August 2018</p>
+			</header><p>Wow did this form look super simple or have been I been looking at forms for days that I might be going a bit mad. Nope this form is super simple, and I got to use most of the components from the aircraft form with a few differences, but the client can look at the form and let us know if he wants a few changes. Matt will still need to go through the old forms and check them with the new ones. Don’t count your chickens before they hatch I always believe, the form was different in one major way, it had a repair or replace input field, but I had nowhere to store it. What did I do? I used the maintenance table in the DB and put the data in there.</p>
+
+<h3>Update Extra fields into Maintenance Table in DB </h3>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nv">$aircraftID</span> <span class="o">=</span> <span class="nx">clean_input</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'mainID'</span><span class="p">]);</span>
+            <span class="nv">$maintenanceType</span> <span class="o">=</span> <span class="s1">'maintenanceType'</span><span class="p">;</span>
+            <span class="nv">$description</span> <span class="o">=</span> <span class="s1">'description'</span><span class="p">;</span>
+            <span class="nv">$mDate</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">;</span>
+            <span class="nv">$designChange</span> <span class="o">=</span> <span class="nx">clean_input</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'maintenance'</span><span class="p">]);</span>
+            <span class="nv">$description2</span> <span class="o">=</span> <span class="s1">'description2'</span><span class="p">;</span>
+            <span class="c1">//Create an array</span>
+            <span class="nv">$maintenance</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'aircraftID'</span> <span class="o">=&gt;</span> <span class="nv">$aircraftID</span><span class="p">,</span>
+             <span class="s1">'date'</span> <span class="o">=&gt;</span> <span class="nv">$mDate</span><span class="p">,</span>
+             <span class="s1">'maintenanceType'</span> <span class="o">=&gt;</span> <span class="nv">$maintenanceType</span><span class="p">,</span> 
+             <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="nv">$description</span><span class="p">,</span> 
+             <span class="s1">'designChange'</span> <span class="o">=&gt;</span> <span class="nv">$designChange</span><span class="p">,</span>
+             <span class="s1">'description2'</span> <span class="o">=&gt;</span> <span class="nv">$description2</span><span class="p">);</span>       
+            <span class="c1">//Insert data to the maintenance table</span>
+            <span class="nx">updateMaintenance</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span><span class="nv">$maintenance</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>I had no extra queries to create or updates because all this was done already. I just used old code.</p>
+
+<p>The form worked, and all data is pushing and displaying from the DB</p>
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

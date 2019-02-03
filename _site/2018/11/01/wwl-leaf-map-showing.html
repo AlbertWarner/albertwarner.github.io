@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/11/01/wwl-leaf-map-showing.html" /><!-- Title, description, author --><title>WWL Leaf map showing | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="WWL Leaf map showing | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/11/01/wwl-leaf-map-showing.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>WWL Leaf map showing</h2>
+				<p>01 November 2018</p>
+			</header><p>Another fun day for learning something new. We need to show on a map with indications of where the user walked on a google maps. I went searching for some javascript or how to imply what I want on google maps, my searches were coming up with some hard work. Then Alex came to talk to me and we got chatting about what I was looking for and he said I must use <a href="https://leafletjs.com/examples/quick-start/"> Leaflet </a> Wow was this an amazing site and so well documented, I love this.</p>
+
+<p>I followed the guide and did some modifications to the sit and got it to the map to show. I showed Adon and he seemed impressed. We started playing with the coordinates to see how they worked. Should be a simple for loop running through the data from the DB and displaying it.</p>
+
+<h3>Ajax Uploading Files </h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"mapid"</span>  <span class="na">style=</span><span class="s">"height:470px;"</span><span class="nt">&gt;&lt;/div&gt;</span>
+                   <span class="nt">&lt;script&gt;</span>
+                    <span class="kd">var</span> <span class="nx">mymap</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s1">'mapid'</span><span class="p">).</span><span class="nx">setView</span><span class="p">([</span><span class="o">-</span><span class="mf">45.865843</span><span class="p">,</span> <span class="mf">170.519456</span><span class="p">],</span> <span class="mi">13</span><span class="p">);</span>
+
+                   <span class="kd">var</span> <span class="nx">marker</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">marker</span><span class="p">([</span><span class="o">-</span><span class="mf">45.865843</span><span class="p">,</span> <span class="mf">170.519456</span><span class="p">]).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">mymap</span><span class="p">);</span>
+                   <span class="kd">var</span> <span class="nx">marker</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">marker</span><span class="p">([</span><span class="o">-</span><span class="mf">45.865843</span><span class="p">,</span> <span class="mf">170.519556</span><span class="p">]).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">mymap</span><span class="p">);</span>
+                   <span class="kd">var</span> <span class="nx">marker</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">marker</span><span class="p">([</span><span class="o">-</span><span class="mf">45.865843</span><span class="p">,</span> <span class="mf">170.519656</span><span class="p">]).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">mymap</span><span class="p">);</span>
+
+                    <span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s1">'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'</span><span class="p">,</span> <span class="p">{</span>
+                      <span class="na">maxZoom</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                      <span class="na">attribution</span><span class="p">:</span> <span class="s1">'Map data &amp;copy; &lt;a href="https://www.openstreetmap.org/"&gt;OpenStreetMap&lt;/a&gt; contributors, '</span> <span class="o">+</span>
+                        <span class="s1">'&lt;a href="https://creativecommons.org/licenses/by-sa/2.0/"&gt;CC-BY-SA&lt;/a&gt;, '</span> <span class="o">+</span>
+                        <span class="s1">'Imagery © &lt;a href="https://www.mapbox.com/"&gt;Mapbox&lt;/a&gt;'</span><span class="p">,</span>
+                      <span class="na">id</span><span class="p">:</span> <span class="s1">'mapbox.streets'</span>
+                    <span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">mymap</span><span class="p">);</span>
+
+                    <span class="nx">marker</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="s2">"&lt;b&gt;Hello world!&lt;/b&gt;&lt;br&gt;I am a popup."</span><span class="p">).</span><span class="nx">openPopup</span><span class="p">();</span>
+
+                 <span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+<p><img src="/assets/images/Project2/map.PNG" alt="alt text" title=" map " /></p>
+
+<p>Image 1. Leaflet Map implemented by Django</p>
+
+<h3>Reflection </h3>
+
+<p>I learned a lot from the leaflet page and how to use their maps is well documented and it was fun to see it work with Django. Very nice learning curve and lots of fun.</p>
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

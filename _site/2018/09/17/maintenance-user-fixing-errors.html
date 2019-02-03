@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/09/17/maintenance-user-fixing-errors.html" /><!-- Title, description, author --><title>Maintenance User Fixing Errors | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Maintenance User Fixing Errors | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/09/17/maintenance-user-fixing-errors.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>Maintenance User Fixing Errors</h2>
+				<p>17 September 2018</p>
+			</header><p>The maintenance section problem I have known about for a while, it would push to the DB when the submit button was hit but there are sections that the maintenance person can see, and these sections are just removed. The problem is when the user submits the form, the data is posted to the controller but the fields that aren’t included can not post anything to the controller and you get the errors like in Image 1.</p>
+
+<p><img src="/assets/images/Project2/mainterror.JPG" alt="errors" /></p>
+
+<p>Image 1. Aircraft maintenance form submitted</p>
+
+<p>Solution to the above error, I did some googling and found <a href="https://stackoverflow.com/questions/1992114/how-do-you-create-a-hidden-div-that-doesnt-create-a-line-break-or-horizontal-sp"> how to create hidden div on stack overflow</a>. It worked amazing quick fix, so the information will be hidden from the user and all the information will post like normal.</p>
+
+<h3>Solution to the maintenance error</h3>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"display:none"</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!--Insurance Details Section!--&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formComponentUrl</span><span class="o">.</span> <span class="s1">'insuranceDetails.php'</span><span class="p">);</span><span class="cp">?&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="c">&lt;!--Aircraft Details!--&gt;</span>
+        <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"text-center"</span><span class="nt">&gt;</span>Aircraft Details<span class="nt">&lt;/h2&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formComponentUrl</span> <span class="o">.</span> <span class="s1">'aircraftDetails.php'</span><span class="p">);</span><span class="cp">?&gt;</span></code></pre></figure>
+
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

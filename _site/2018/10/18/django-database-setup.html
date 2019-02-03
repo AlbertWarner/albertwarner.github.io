@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/10/18/django-database-setup.html" /><!-- Title, description, author --><title>Django Database Setup  | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Django Database Setup  | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/10/18/django-database-setup.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>Django Database Setup </h2>
+				<p>18 October 2018</p>
+			</header><p>Creating the Database is interesting feature of Django, like flask you create the database in model.py file. Each Table is called a class in Django. For now, I will use Sqlite which comes standard with Django and I will implement the database into MariaDB at a later stage, just want to get everything working properly.</p>
+
+<h3> Creating a person table </h3>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="no">Model</span><span class="p">):</span>
+    <span class="no">FName</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="no">CharField</span><span class="p">(</span><span class="n">max_length</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="no">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="no">True</span><span class="p">)</span>
+    <span class="no">LName</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="no">CharField</span><span class="p">(</span><span class="n">max_length</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="no">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="no">True</span><span class="p">)</span>
+    <span class="no">Gender</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="no">IntegerField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="no">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="no">DateofBirth</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="no">CharField</span><span class="p">(</span><span class="n">max_length</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="no">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="no">True</span><span class="p">)</span>
+    <span class="no">Email</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="no">CharField</span><span class="p">(</span><span class="n">max_length</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="no">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="no">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="nb">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="o">.</span><span class="no">FName</span>
+</code></pre></div></div>
+
+<p>I used the exact same naming convention as what is being used in the phone app, when the API comes from the phone app, the data can be stored without any problems.</p>
+
+<p>As I was creating the other tables, I noticed that not all the fields where Char fields and I used the <a href=" https://docs.djangoproject.com/en/dev/ref/models/fields/#floatfield"> Django Docs </a> to find the other fields such as the Boolean, the Float field and the Decimal Field.</p>
+
+<p>Following the guidelines of &lt;a href=https://docs.djangoproject.com/en/2.1/intro/tutorial02/&gt;Django Docs tutorial&lt;/a&gt;  to create the tables with Django you use the command “makemigrations wwl” but I ran into some problems along the way.</p>
+
+<h3>First problem </h3>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">File</span> <span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files (x86)</span><span class="se">\P</span><span class="s2">ython36-32</span><span class="se">\l</span><span class="s2">ib</span><span class="se">\s</span><span class="s2">ite-packages</span><span class="se">\d</span><span class="s2">jango</span><span class="se">\c</span><span class="s2">ore</span><span class="se">\m</span><span class="s2">anagement</span><span class="se">\_</span><span class="s2">_init__.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">347</span><span class="p">,</span> <span class="k">in</span> <span class="n">execute</span>
+    <span class="n">django</span><span class="p">.</span><span class="nf">setup</span><span class="p">()</span>
+  <span class="no">File</span> <span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files (x86)</span><span class="se">\P</span><span class="s2">ython36-32</span><span class="se">\l</span><span class="s2">ib</span><span class="se">\s</span><span class="s2">ite-packages</span><span class="se">\d</span><span class="s2">jango</span><span class="se">\_</span><span class="s2">_init__.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">24</span><span class="p">,</span> <span class="k">in</span> <span class="n">setup</span>
+    <span class="n">apps</span><span class="p">.</span><span class="nf">populate</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="no">INSTALLED_APPS</span><span class="p">)</span>
+  <span class="no">File</span> <span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files (x86)</span><span class="se">\P</span><span class="s2">ython36-32</span><span class="se">\l</span><span class="s2">ib</span><span class="se">\s</span><span class="s2">ite-packages</span><span class="se">\d</span><span class="s2">jango</span><span class="se">\a</span><span class="s2">pps</span><span class="se">\r</span><span class="s2">egistry.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">112</span><span class="p">,</span> <span class="k">in</span> <span class="n">populate</span>
+    <span class="n">app_config</span><span class="p">.</span><span class="nf">import_models</span><span class="p">()</span>
+  <span class="no">File</span> <span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files (x86)</span><span class="se">\P</span><span class="s2">ython36-32</span><span class="se">\l</span><span class="s2">ib</span><span class="se">\s</span><span class="s2">ite-packages</span><span class="se">\d</span><span class="s2">jango</span><span class="se">\a</span><span class="s2">pps</span><span class="se">\c</span><span class="s2">onfig.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">198</span><span class="p">,</span> <span class="k">in</span> <span class="n">import_models</span>
+    <span class="nb">self</span><span class="p">.</span><span class="nf">models_module</span> <span class="o">=</span> <span class="n">import_module</span><span class="p">(</span><span class="n">models_module_name</span><span class="p">)</span>
+  <span class="no">File</span> <span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files (x86)</span><span class="se">\P</span><span class="s2">ython36-32</span><span class="se">\l</span><span class="s2">ib</span><span class="se">\i</span><span class="s2">mportlib</span><span class="se">\_</span><span class="s2">_init__.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">126</span><span class="p">,</span> <span class="k">in</span> <span class="n">import_module</span>
+    <span class="k">return</span> <span class="n">_bootstrap</span><span class="p">.</span><span class="nf">_gcd_import</span><span class="p">(</span><span class="nb">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+  <span class="no">File</span> <span class="s2">"&lt;frozen importlib._bootstrap&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">994</span><span class="p">,</span> <span class="k">in</span> <span class="n">_gcd_import</span>
+  <span class="no">File</span> <span class="s2">"&lt;frozen importlib._bootstrap&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">971</span><span class="p">,</span> <span class="k">in</span> <span class="n">_find_and_load</span>
+  <span class="no">File</span> <span class="s2">"&lt;frozen importlib._bootstrap&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">955</span><span class="p">,</span> <span class="k">in</span> <span class="n">_find_and_load_unlocked</span>
+  <span class="no">File</span> <span class="s2">"&lt;frozen importlib._bootstrap&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">665</span><span class="p">,</span> <span class="k">in</span> <span class="n">_load_unlocked</span>
+  <span class="no">File</span> <span class="s2">"&lt;frozen importlib._bootstrap_external&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">678</span><span class="p">,</span> <span class="k">in</span> <span class="n">exec_module</span>
+  <span class="no">File</span> <span class="s2">"&lt;frozen importlib._bootstrap&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">219</span><span class="p">,</span> <span class="k">in</span> <span class="n">_call_with_frames_removed</span>
+  <span class="no">File</span> <span class="s2">"H:</span><span class="se">\B</span><span class="s2">itY3</span><span class="se">\S</span><span class="s2">emester 2</span><span class="se">\P</span><span class="s2">roject 2</span><span class="se">\w</span><span class="s2">alkingwithleon</span><span class="se">\D</span><span class="s2">jango-WWL</span><span class="se">\m</span><span class="s2">ysite</span><span class="se">\w</span><span class="s2">wl</span><span class="se">\m</span><span class="s2">odels.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">5</span><span class="p">,</span> <span class="k">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="no">Model</span><span class="p">):</span>
+  <span class="no">File</span> <span class="s2">"H:</span><span class="se">\B</span><span class="s2">itY3</span><span class="se">\S</span><span class="s2">emester 2</span><span class="se">\P</span><span class="s2">roject 2</span><span class="se">\w</span><span class="s2">alkingwithleon</span><span class="se">\D</span><span class="s2">jango-WWL</span><span class="se">\m</span><span class="s2">ysite</span><span class="se">\w</span><span class="s2">wl</span><span class="se">\m</span><span class="s2">odels.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">6</span><span class="p">,</span> <span class="k">in</span> <span class="no">Person</span>
+    <span class="no">FName</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="no">CharField</span><span class="p">(</span><span class="n">max_length</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kp">true</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="no">True</span><span class="p">)</span>
+<span class="no">NameError</span><span class="p">:</span> <span class="nb">name</span> <span class="s1">'true'</span> <span class="n">is</span> <span class="n">not</span> <span class="n">defined</span>
+<span class="no">PS</span> <span class="no">H</span><span class="p">:\</span><span class="no">BitY3</span><span class="p">\</span><span class="no">Semester</span> <span class="mi">2</span><span class="p">\</span><span class="no">Project</span> <span class="mi">2</span><span class="p">\</span><span class="n">walkingwithleon</span><span class="p">\</span><span class="no">Django</span><span class="o">-</span><span class="no">WWL</span><span class="p">\</span><span class="n">mysite</span><span class="o">&gt;</span>  
+</code></pre></div></div>
+
+<p>What a huge list of complaints, only to find the null = true must be with a capital T. Wow Django is strict, seems to be shouting at you just because of an uppercase or lowercase letter. All good problem solved.</p>
+
+<p>The second problem was the Boolean field has null = true and on the error message it stated to make the field NullBooleanField but according to the Django Docs, this will be depreciated in new versions on Django.</p>
+
+<h3>Second problem </h3>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wwl</span><span class="o">.</span><span class="no">Goal</span><span class="o">.</span><span class="no">Achieved</span><span class="p">:</span> <span class="p">(</span><span class="n">fields</span><span class="o">.</span><span class="no">E110</span><span class="p">)</span> <span class="no">BooleanFields</span> <span class="k">do</span> <span class="n">not</span> <span class="n">accept</span> <span class="n">null</span> <span class="n">values</span><span class="o">.</span>
+        <span class="no">HINT</span><span class="p">:</span> <span class="no">Use</span> <span class="n">a</span> <span class="no">NullBooleanField</span> <span class="n">instead</span><span class="p">.</span>
+<span class="nf">wwl</span><span class="o">.</span><span class="no">Goal</span><span class="o">.</span><span class="no">Active</span><span class="p">:</span> <span class="p">(</span><span class="n">fields</span><span class="o">.</span><span class="no">E110</span><span class="p">)</span> <span class="no">BooleanFields</span> <span class="k">do</span> <span class="n">not</span> <span class="n">accept</span> <span class="n">null</span> <span class="n">values</span><span class="o">.</span>
+        <span class="no">HINT</span><span class="p">:</span> <span class="no">Use</span> <span class="n">a</span> <span class="no">NullBooleanField</span> <span class="n">instead</span><span class="o">.</span>
+<span class="no">PS</span> <span class="no">H</span><span class="p">:\</span><span class="no">BitY3</span><span class="p">\</span><span class="no">Semester</span> <span class="mi">2</span><span class="p">\</span><span class="no">Project</span> <span class="mi">2</span><span class="p">\</span><span class="n">walkingwithleon</span><span class="p">\</span><span class="no">Django</span><span class="o">-</span><span class="no">WWL</span><span class="p">\</span><span class="n">mysite</span><span class="o">&gt;</span>  <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">django</span> <span class="o">--</span><span class="n">version</span>
+<span class="mf">2.0</span><span class="o">.</span><span class="mi">2</span>
+<span class="no">PS</span> <span class="no">H</span><span class="p">:\</span><span class="no">BitY3</span><span class="p">\</span><span class="no">Semester</span> <span class="mi">2</span><span class="p">\</span><span class="no">Project</span> <span class="mi">2</span><span class="p">\</span><span class="n">walkingwithleon</span><span class="p">\</span><span class="no">Django</span><span class="o">-</span><span class="no">WWL</span><span class="p">\</span><span class="n">mysite</span><span class="o">&gt;</span> <span class="n">python</span> <span class="o">-</span><span class="no">V</span>
+<span class="no">Python</span> <span class="mf">3.6</span><span class="o">.</span><span class="mi">4</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/Project2/image.png" alt="alt text" title=" Django Docs " />
+Image 1. Django Docs on Null Boolean Field</p>
+
+<p>The Solution to this problem is getting a newer version on Django, the version on the computer was 2.0.2 and the latest version where this problem won’t exist is version 2.1</p>
+
+<p>After all that that Database was populated with tables, this was an awesome sight to see and fun working through those problems.</p>
+
+<h3>Successful creating DB Tables </h3>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">PS</span> <span class="no">H</span><span class="p">:\</span><span class="no">BitY3</span><span class="p">\</span><span class="no">Semester</span> <span class="mi">2</span><span class="p">\</span><span class="no">Project</span> <span class="mi">2</span><span class="p">\</span><span class="n">walkingwithleon</span><span class="p">\</span><span class="no">Django</span><span class="o">-</span><span class="no">WWL</span><span class="p">\</span><span class="n">mysite</span><span class="o">&gt;</span> <span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="nf">py</span> <span class="n">makemigrations</span> <span class="n">wwl</span>
+<span class="no">Migrations</span> <span class="k">for</span> <span class="s1">'wwl'</span><span class="p">:</span>
+  <span class="n">wwl</span><span class="p">\</span><span class="n">migrations</span><span class="p">\</span><span class="mo">0001</span><span class="n">_initial</span><span class="p">.</span><span class="nf">py</span>
+    <span class="o">-</span> <span class="no">Create</span> <span class="n">model</span> <span class="no">Geolocation</span>
+    <span class="o">-</span> <span class="no">Create</span> <span class="n">model</span> <span class="no">Goal</span>
+    <span class="o">-</span> <span class="no">Create</span> <span class="n">model</span> <span class="no">Person</span>
+    <span class="o">-</span> <span class="no">Create</span> <span class="n">model</span> <span class="no">Session</span>
+    <span class="o">-</span> <span class="no">Create</span> <span class="n">model</span> <span class="no">Weight</span>
+    <span class="o">-</span> <span class="no">Add</span> <span class="n">field</span> <span class="no">PersonID</span> <span class="n">to</span> <span class="n">goal</span>
+    <span class="o">-</span> <span class="no">Add</span> <span class="n">field</span> <span class="no">SessionID</span> <span class="n">to</span> <span class="n">geolocation</span>
+</code></pre></div></div>
+
+<p>The last problem was on the admin page, this page is created by Django and it allows the user to view the DB in user-friendly view, you can add or remove information from the DB. Great way to test the DB.</p>
+
+<p>According to Django docs, you must do the following:</p>
+
+<p>“It’s important to add <strong>str</strong>() methods to your models, not only for your own convenience when dealing with the interactive prompt, but also because objects’ representations are used throughout Django’s automatically-generated admin.”</p>
+
+<p>I added this to the models.py file to all the tables, but I was getting an error because the field I was passing through was an INT and not a Char field. With a little help from Grayson, I changed the return function to string as shown in the code snippet below. Interesting, I wonder if I changed the <strong>str</strong>() to a <strong>int</strong>() would it accept it? Didn’t have time to test but will in the future.</p>
+
+<h3>String return function for DB </h3>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="nb">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">str</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="nf">personID</span><span class="p">)</span> <span class="c1">#user to select convert to string, this function returns a string</span>
+</code></pre></div></div>
+
+<p>Interesting day today, had fun learning these new features and functions, different to PHP by far, but probably Laravel would have been the same.</p>
+
+<h3>Reflection</h3>
+<p>Learning how to create a database in Django and work through some problems with creating it. Django is strict. Instead of creating the DB with a query, Django does all that for you, very interesting.</p>
+
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

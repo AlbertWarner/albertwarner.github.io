@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/03/18/liability-claim-form.html" /><!-- Title, description, author --><title>Liability Claim Form | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Liability Claim Form | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/03/18/liability-claim-form.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>Liability Claim Form</h2>
+				<p>18 March 2018</p>
+			</header><p>What have I done?</p>
+
+<p>Abdel notified me about a part of the aircraft controller that was not pushing data, these fields were the Aircraft-Flight Details and I went through the aircraft controller and added the insert query. Thank you, Abdel.</p>
+
+<p><img src="/assets/flightdetails.JPG" alt="alt text" title=" Flight Details " /></p>
+
+<p>Fig 1. Aircraft-Flight Details insert query pushing into the Database</p>
+
+<p>Last week I had a problem with the comments not pushing to the database and an Undefined index error every time. I could not understand this because I used the code from the aircraft controller and it was working fine. Checked my code so many times and tested by hard-coding strings to push to the database, that seemed to work, but when I added the post data it kept getting Undefined index errors.</p>
+
+<p>Solution to my problem.</p>
+
+<p>To my surprise, Grayson and myself were talking about the problem and we went through the HTML document and was I surprised to find the spray liability form has more than 2 text area input fields, there were 6 fields and I was only trying to push 2 of the 6 fields. I quickly coded up the 4 extra fields and tested them. Surprise, surprise it worked and all the comment fields were pushing to the database. Interesting that the extra fields that weren’t working, was stopping the data being pushed to the database.</p>
+
+<p><img src="/assets/spraydb.JPG" alt="alt text" title=" Spray Liability DB" /></p>
+
+<p>Fig 2. Testing spray liability form comments pushing to the database</p>
+
+<p><img src="/assets/sprayliab.JPG" alt="alt text" title=" Spray Liability " /></p>
+
+<p>Fig 3. One of the four comments inserts query that I missed. This caused the undefined index error</p>
+
+<p>Abdel and I were discussing how the models worked because in a small way it seemed a difficult process. In the Fig4 diagram below it shows how the data goes from the HTML to database. I suggested it will need to change because the controller will need to be called to produce an ACL number, which will be the number that we control all the forms. The controller should control which form is been shown but this can be discussed in phase 2 planning.</p>
+
+<p><img src="/assets/layout.JPG" alt="alt text" title=" Talking " /></p>
+
+<p>Fig 4. Abdel and I discuss how the data goes from the HTML to the database.</p>
+
+<p>I started the Liability claims controller, there was a base controller already set up and I tested it to see if anything was working, unfortunately, I was not so lucky and no connection to DB could be made. I started by adding try catches to all the code to get the controller talking to the DB. The liability form was a tricky form because it was completely different to the normal forms I had been working on but I progressed on and got the first person to be added to the DB.</p>
+
+<p>What are my Obstacles?</p>
+
+<p><img src="/assets/liaberror.JPG" alt="alt text" title=" Liability error " /></p>
+
+<p>Fig 5. Maintenance section not adding to the DB</p>
+
+<p>I hit a major problem, there are 2 maintenance sections that need to push to the DB but the maintenance field in the DB required an aircraft ID, but the liability form isn’t about an aircraft, it is about the aircraft components or damaged components that a vehicle was carrying for an aircraft. The aircraft field also required a pilot ID.</p>
+
+<p>Solution to my problem, I created insert queries to the DB to insert a pilot and an aircraft, but I hardcoded the word “Liability claim form details” to each field that took a string, and this created the ID I required for maintenance information to be inserted into the DB</p>
+
+<p><img src="/assets/liabdbmain.JPG" alt="alt text" title=" Liability DB Maintenance " /></p>
+
+<p>Fig 6. Maintenance table in the DB</p>
+
+<p>I still had a few errors of data not pushing to the DB, so I asked Aleen if she could help me and have a look and see if what I was doing wrong. She found some of my errors and corrected them but there were a few errors still appearing.</p>
+
+<p>The Liability requires data to be pushed to the third-party field but the third-party table in DB requires more information than on the Liability claim form.</p>
+
+<p>What do I want to achieve?</p>
+
+<p>Completed the Liability claim form pushing to the DB</p>
+
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

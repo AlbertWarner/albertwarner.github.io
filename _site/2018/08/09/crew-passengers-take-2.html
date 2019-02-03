@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/08/09/crew-passengers-take-2.html" /><!-- Title, description, author --><title>Crew/Passengers Take 2 | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Crew/Passengers Take 2 | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/08/09/crew-passengers-take-2.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>Crew/Passengers Take 2</h2>
+				<p>09 August 2018</p>
+			</header><p>So today was an interesting day, the Dynamically testing of adding extra crew was changed and stated to use a for loop instead of trying populate everything by pressing a button . I liked this idea because it made more sense. So technically what will happen is the user will select the total amount of passengers from the drop-down box. This number will be passed into the database and when the form is refreshed extra passenger input fields will appear for the user data to complete. On the backend, there will be another for loop that will capture the information and insert the data to the DB.</p>
+
+<p>Here are some interesting issues and learning experiences:</p>
+
+<p><img src="/assets/images/Project2/frontendfor.JPG" alt="for loop1" /></p>
+
+<p>Image 1. For loop used on the HTML to produce the extra input fields</p>
+
+<p><img src="/assets/images/Project2/backendfor.JPG" alt="for loop 2 " /></p>
+
+<p>Image 2. For loop used on the controller to produce the extra post into variables</p>
+
+<p>In image one, it was easy to do the for loop and have the fields populate but the problem came when trying to populate the value field on the HTML. How does the value field work? There is a query on the backend that gets the data. This data is stored in a variable and the variable is echoed in the value field. The problem was, on the DOM you could see the value field displaying the variable name but not the data. Stack overflow to the rescue: <a href="https://stackoverflow.com/questions/13912342/php-print-variables-in-for-loop"> php-print-variables-in-for-loop </a>.</p>
+
+<p>Second Issue, on the backend I used a for loop to produce the post variables and the data would be put into a 2D array and then updated to the database. I know that I could have used a foreach loop but the number of passengers required by the client was a fixed amount. I decided that a for loop would do the same job. The problem was on the post variable names need to be incremented for example test = post[passengerID2] the passenger ID would need to be incremented. Stack overflow to the rescue again: <a href="https://stackoverflow.com/questions/6595774/getting-data-from-post-within-a-for-loop"> getting-data-from-post-within-a-for-loop </a>.</p>
+
+<p>Something I found interesting was to remember the difference between empty and Isset.</p>
+
+<p><a href="https://stackoverflow.com/questions/4559925/why-check-both-isset-and-empty/4560099"> why-check-both-isset-and-empty </a></p>
+
+<p><a href="https://stackoverflow.com/questions/7191626/isset-and-empty-what-to-use"> isset-and-empty-what-to-use </a>.</p>
+
+<h3>Reflection</h3>
+<p>I learned instead of fixing some code that would have been complicated to fix but looked very neat on the front end. The simple path is sometimes an easier path. It was interesting to learn how to increment a variable in PHP with a for loop. The other thing I learned or remembered was the difference between empty and Isset</p>
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

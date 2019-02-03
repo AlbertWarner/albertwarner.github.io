@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/04/22/file-structure.html" /><!-- Title, description, author --><title>File Structure | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="File Structure | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/04/22/file-structure.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>File Structure</h2>
+				<p>22 April 2018</p>
+			</header><p>What have I done?</p>
+
+<p>This was an interesting change about to happen. I thought we were being punished, taking 10 steps backward because everything was going to change, and nothing was going to work, just as it seemed we were getting everything moving forward and starting to work but I was very wrong. This move would be better in so many ways, I wish we had done this type file structure and design from the beginning, it would’ve made the workload 10 times easier. As they say, we learn from our mistakes and have good people to help correct us.</p>
+
+<p>This adventure started when I asked Adon to explain the new change he wanted to be implemented. This change is to have one PHP file build the aircraft or helicopter forms. As shown in figure 1, Adon gave us 2 choices. We selected option number 2, which was single PHP file that would build an HTML file by including the header and the footer and all other required information.</p>
+
+<p><img src="/assets/maindoc.JPG" alt="alt text" title=" choices " /></p>
+
+<p>Figure 1. Adon gave us options to move forward.</p>
+
+<p>That was only the beginning of the massive changes to happen. Adon explained that a new server would be created by the Operations team and when we push to the master branch on Gitlab it would push directly to the new server and be published live. Meaning the master branch on Gitlab would be our working branch. I created a development branch which would act as the master branch, the team could push or pull from their branches to the development branch. When everyone is happy with the website to go live it could be pushed from the development to the master branch.</p>
+
+<p><img src="/assets/gitlab.JPG" alt="alt text" title=" choices " /></p>
+
+<p>Figure 2. Gitlab development branch created</p>
+
+<p>The Second big change to happen was to the file structure. All the files were in the main directory called ACL, the only directory that was different was the model’s directory which was called by the controllers to push data to the database. This structure needed to completely change, one of the reasons was, the website was going to have smaller sections, for example, the header.php and having all these small files in one directory would become confusing. With a better file structure, the developer can go look for a file in a specific directory and find what he is looking for. The second reason is that it is standard practice to have files in subdirectories and it looks neater and more structured.</p>
+
+<p><img src="/assets/oldfile.JPG" alt="alt text" title=" old file structure " /></p>
+
+<p>Figure 3. Old File structure</p>
+
+<p>The change of the file structure would be easy, I thought “hey an easy task to do”, but in the back of my mind, I was thinking when these files need to talk to each other it would be a major problem. I thought I would be seeing error after error, the ‘error nightmare’ it would be called.</p>
+
+<p><img src="/assets/newfile.JPG" alt="alt text" title=" new file structure " /></p>
+
+<p>Fig 4. The new file Structure</p>
+
+<p>Does that not look so much better? The assets directory would hold the CSS and IMG subdirectories and the views directory would hold the forms and the reports subdirectories.</p>
+
+<p>I felt this was neat and looked like a conventional website, but it would change again.</p>
+
+<p>Fig 5 shows the plan of how the main.php would be built and how it would function</p>
+
+<p><img src="/assets/mainplan.JPG" alt="alt text" title=" main plan " /></p>
+
+<p>Fig 5. main.php planning</p>
+
+<p>The aircraft is a form I have been working on since the beginning of the semester, so I decided I would break that one first and try to get everything to work. I removed the header and created a new file called head.php and I stored that file in the common directory and I did the same for the footer, also in the footer file I closed the body and HTML tags. All that was left inside the aircraft.php was the raw information of the website, contact details, insurance details etc.</p>
+
+<p>The main.php would build up the page, by including the subsections to create the website. Fig 6 shows how the main works.</p>
+
+<p><img src="/assets/mainsetup.JPG" alt="alt text" title=" main setup " /></p>
+
+<p>Fig 6. main.php</p>
+
+<p>At the bottom of the controller, there would be a variable called $page and it would have the webpage name stored in that variable. This variable would be included on the main.php as shown in Fig 6 and this would call the section required between the header and footer of the website. In theory, the page is built up by 3 different files, but it still looks and works like a normal page.</p>
+
+<p>The aircraft page was split up even further. Each section under its own heading was moved into its own PHP file. For example, the heading called contact details and all the information below that heading was moved to a file called contact.php which was stored in the components directory. The reason for this is, later when we introduce users and what the users can see, if a user is not allowed to see the insurance details then that file will not be included. The other reason is to stop repeating ourselves and if we did this from the beginning, life would have been so much easier. Where it becomes easy is, if all 8 pages need a contact details section, then all 8 pages include one contact.php and this makes it less work. As they say work smarter, not harder.</p>
+
+<p><img src="/assets/subfiles.JPG" alt="alt text" title=" subfiles " /></p>
+
+<p>Figure 7 Show the aircraft.php and it is including all the sub files.</p>
+
+<p>In conclusion, this website is starting to look smarter and the changes look so much better and easier than first thought. The website is functioning exactly as it was before but with a new file structure, yes there will be a few more changes to get all the files talking but all is good for now.</p>
+
+<p>What are my Obstacles?</p>
+
+<p>While testing the above webpage to see if everything was working, I ran into a problem.</p>
+
+<p><img src="/assets/problem.JPG" alt="alt text" title=" problem " /></p>
+
+<p>Fig8. The problem while testing</p>
+
+<p>The problem is the controller is in the controller directory, but it was looking for main.php in the same directory. The main.php file is in the root directory, so the aircraft controller file had to move up one directory into the root and find the file called main. When searching the problem many people said to move up one directory in PHP use “../ ”  Fig 8 you can see that was what I used to include the page but it did not work.</p>
+
+<p>Solution to my problem was found in the <a href="http://php.net/manual/en/function.dirname.php "> PHP manuel</a>, fig 9 show where I found the solution.</p>
+
+<p><img src="/assets/fix.JPG" alt="alt text" title=" fix " /></p>
+
+<p>Figure 9. Solution to the directory problem</p>
+
+<p>The new file structure had to be pushed to Gitlab and moved to the development branch so that the rest of the team could carry on working on the website and make the required changes to the other pages. First, I feel Gitlab is not always happy with the changes, it seemed to work against me. I pushed up the new file structure and git accepted it but kept the old files but at the same time adding the new ones, so I had to manually remove the old files and submit every change, till my Gitlab branch looked the same as my new directory. Then I had to merge the directory to the development branch and again I had to manually remove the unwanted files.</p>
+
+<p>Finally made all the necessary changes to my directory and then had to merge them again with the development branch, I got merge errors and had to open the directory with visual code and accept all the new changes. With the master, it seemed to accept the changes but with the development branch, we might have a few merge errors in future.</p>
+
+<p><img src="/assets/git.JPG" alt="alt text" title=" git " /></p>
+
+<p>Figure 10. Gitlab and how I had to fix the merge errors</p>
+
+<p>What do I want to achieve?</p>
+
+<p>Hope the file structure is correct and now start on the hashing of the form ID, which I was supposed to do 2 weeks ago.</p>
+
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

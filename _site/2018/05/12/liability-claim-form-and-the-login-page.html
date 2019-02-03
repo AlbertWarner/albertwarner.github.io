@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/05/12/liability-claim-form-and-the-login-page.html" /><!-- Title, description, author --><title>Liability claim form and the Login Page | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Liability claim form and the Login Page | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/05/12/liability-claim-form-and-the-login-page.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>Liability claim form and the Login Page</h2>
+				<p>12 May 2018</p>
+			</header><p>With the success of changing the aircraft claim form, I thought I would put in a little extra help and change the Liability form quickly, then move onto the more important work, like create the hashing of form ID and store it in the database, note this was what I want to achieve question which I answered about 3 weeks ago.</p>
+
+<p>Did I just notice something that might create even more work for us? When the data is passed in POST to the controller via the name variable on the HTML, this variable is unique to each form and most of the claim forms are different, some in a small way, some in a large way. Meaning when we broke up the aircraft form into smaller sections, for example, the contact.php, we will have to split the other forms up and store them in their own directory. Otherwise, each form might not work. We will have to go through the files and check which name are the same but for now, we are splitting the form individually into their own sections and storing them under the common directory under the forms name.</p>
+
+<p>I split the form up, a bit of long tedious process cutting and pasting but as always, I made a mistake and the form was not pushing to the DB, I create a rightpropeller.php twice when there was supposed to left and a right propeller form. I corrected the mistake, and all worked fine.</p>
+
+<p>Matt was assigned the login page, but he was having a problem with the HTML page going to the controller and the controller was looking for the connect file in the controller class. First, I suggested to Matt that we use the access controller like in web 2 which created a session. Then we can control the user logged in. I send him all the files via slack.</p>
+
+<p><img src="/assets/loginpage.JPG" alt="alt text" title=" login page " /></p>
+
+<p>Figure 1. The login page that Matt and I worked on</p>
+
+<p><img src="/assets/login.JPG" alt="alt text" title=" login page " /></p>
+
+<p>Figure 2. The access controller that Matt and I created</p>
+
+<p>First, we got the login.php to see the CSS in asset directory, I did the same code that Aaron helped me with the main.php and it worked. The login in page worked fine. While testing the login page by entering user data, it reached the access controller but when it was a wrong username or password, the access controller would call the login page again but it lost connection to the CSS. One thing I have noticed, PHP does not like moving to a different directory. I think its because we are calling it wrong. I might go speak to Dale about this and get some advice.</p>
+
+<p>So I suggested we move the login into the root directory and all seem to work with no problem, the login page worked and used data from the database to give access to the index page.</p>
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

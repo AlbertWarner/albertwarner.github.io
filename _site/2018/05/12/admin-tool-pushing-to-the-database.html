@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/05/12/admin-tool-pushing-to-the-database.html" /><!-- Title, description, author --><title>Admin Tool Pushing to the Database | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Admin Tool Pushing to the Database | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/05/12/admin-tool-pushing-to-the-database.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>Admin Tool Pushing to the Database</h2>
+				<p>12 May 2018</p>
+			</header><p>The admin tool was the first page that had to be working because the database was clear of all data and our index page would not have anything to display. The index controller also uses the form Table in the DB to connect to the forms controllers. The entire website would not work without those important forms and form ID’s.</p>
+
+<p>We weren’t too focused on the main objective and that was to get data into the DB with the admin tool. Arron came to help me with his web skills and we worked on getting the admin tool displaying correctly, meaning the files were not seeing the CSS or the images in the assets directory.</p>
+
+<p><img src="/assets/root.JPG" alt="alt text" title=" root " /></p>
+
+<p>Figure 1. The Root path created in config.php</p>
+
+<p>In Fig 1, with the help of google, I found the code to get back to the root directory at all times. The problem was when inserting the code into the link tag with PHP, it did not seem to find the path and it threw errors after errors.</p>
+
+<p><img src="/assets/css.JPG" alt="alt text" title=" CSS " /></p>
+
+<p>Fig 2. Aaron suggestion to link to the CSS file</p>
+
+<p>Aaron suggested using the code in Fig 2, which we tried at the beginning as it didn’t work before, why would it work this time, but it would not hurt to test. As this code has done many times before, it proved me wrong! It worked, what a surprise. The reason for us getting it to work is because the main.php builds up the admin page the same way as it builds the claim forms, if the CSS and images were not working for the admin tool, it would not work for the entire website.</p>
+
+<p>Back to the important work, getting the admin pushing form name to the DB.</p>
+
+<p><img src="/assets/adminback.JPG" alt="alt text" title=" admin " /></p>
+
+<p>Figure 3. The admin controller pushing data to the DB</p>
+
+<p>I used a straightforward insert query and a bind param to push the data to the DB and then used JavaScript to display if the form had been added successfully.</p>
+
+<p><img src="/assets/addingclaims.PNG" alt="alt text" title=" adding claims " /></p>
+
+<p>Figure 3. The Forms table ready to work</p>
+
+<p>Now we can start working on the claim forms and see what our problems are there when pushing to the database.</p>
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

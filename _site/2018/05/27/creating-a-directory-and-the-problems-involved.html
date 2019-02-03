@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/05/27/creating-a-directory-and-the-problems-involved.html" /><!-- Title, description, author --><title>Creating a Directory and the Problems involved | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Creating a Directory and the Problems involved | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/05/27/creating-a-directory-and-the-problems-involved.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>Creating a Directory and the Problems involved</h2>
+				<p>27 May 2018</p>
+			</header><p>To explain the problem, I need to explain the reason for creating a directory in PHP. To solve some future problems, we thought it would be easier when the user uploads files such as images or documents, that this information was stored in a directory with the ACL number as the name. Rather than storing all the different claims form files in one directory and the user has to search to find what he’s looking for.</p>
+
+<p>I used the <a href="http://php.net/manual/en/function.mkdir.php"> PHP manual website </a>, and it explained how to create a directory using PHP. This was actually very simple, all the command is doing is using a Linux command but in PHP. When I hardcoded the path “/home/se17group1/public_html/Data” there were no problems and the directory was created. This would not be a problem if we were using Kate to host the files, but the owner would move the files to a host server and the hardcoded path would not work. In the config.php we create a root path as shown in fig 1. We tested a few paths but came up with the same error, shown in fig 2.</p>
+
+<p><img src="/assets/roottesting.JPG" alt="alt text" title=" root testing " /></p>
+
+<p>Fig 1. Root testing in config.php</p>
+
+<p><img src="/assets/permission.PNG" alt="alt text" title=" error " /></p>
+
+<p>Fig 2. The permission denied error when using the root testing path</p>
+
+<p>Wow, PHP really seems to be giving us an uphill battle, right when we require things to move smoothly. I spoke to Brett from the OP’s team and he came to help, and we went through every step slowly and we still got the same error as shown in Fig 2. But this time Brett reminded me that permission denied means that the PHP which is called www-data in Linux terms does not have permissions to create the directories on the server. Why did I not remember that, makes perfect sense?</p>
+
+<p>I went to Rob and he changed the permission as shown in Fig 3.</p>
+
+<p><img src="/assets/kate.PNG" alt="alt text" title=" kate " /></p>
+
+<p>Fig 3. Rob changing Root permissions on Kate server</p>
+
+<p>Unfortunately, it seems that PHP (www-data) still does not have enough permissions to create directories even though Rob made some extra changes. We can create a directory by copying pasting or right-clicking and creating a new directory but in Linux terms, which is what PHP is using to create the directory on the server, there is not enough permission for it to do so.</p>
+
+<p>I spoke to Adon and when the new server is setup for hosting the file, we can give those files more permissions and it should work but for now, we will upload files into one directory.</p>
+
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

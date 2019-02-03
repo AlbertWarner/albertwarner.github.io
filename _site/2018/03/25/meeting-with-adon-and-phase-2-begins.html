@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/03/25/meeting-with-adon-and-phase-2-begins.html" /><!-- Title, description, author --><title>Meeting with Adon and Phase 2 Begins | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Meeting with Adon and Phase 2 Begins | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/03/25/meeting-with-adon-and-phase-2-begins.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>Meeting with Adon and Phase 2 Begins</h2>
+				<p>25 March 2018</p>
+			</header><p>With Adon and Aaron unable to be with us in the previous phase 2 planning, we showed them what was required to get the website functional according to what the client wanted.</p>
+
+<p>With Adon’s guidance, he directed us in a way to move forward. We need to create a second controller almost the same as the index controller, but this controller is sent to the client and the HTML fields that Derek fills in are populated from the database. Leaving all the open fields for Derek’s client to complete. I must admit at this point I was a bit confused on what we were doing, trying to work it out in my head how this was all going to work and how on earth were all these pieces going to come together.</p>
+
+<p><img src="/assets/adonplan.JPG" alt="alt text" title=" Adon plan " /></p>
+
+<p>Fig 1. Adon Going through the plan with us and showing what is required.</p>
+
+<p>What have I done?</p>
+
+<p>The plan was to create an empty incident table in the database. The incident table was the primary table joining most of the other tables together. We needed to create an empty field, this field would be updated every time Derek or his client put data into the database. The field wouldn’t be completely empty, the form ID will be inserted.</p>
+
+<p>I started by creating the insert query on the index controller, my concern was on the incident table it has 2 foreign keys pointing to the insurance ID and the contact ID, but then checking again, the database is set up to receive NULL’s. This will allow us to put NULL’s when an insurance ID or contact ID is inserted into incident table.</p>
+
+<p><img src="/assets/indexcontrollerplan.PNG" alt="alt text" title=" index controller plan " /></p>
+
+<p>Fig 2. Insert query to enter only the form ID into the incident table, this how we will control further update queries</p>
+
+<p>The incident table required a new column called Date Created, which is timestamped when the data was inserted, and this can also be used for record keeping.</p>
+
+<p><img src="/assets/insert.JPG" alt="alt text" title=" insert " /></p>
+
+<p>Fig 3. Tested the insert query and testing if the time stamp is working</p>
+
+<p>Adon sat with me and asked a few questions on the index controller. We drew up a plan on using JAVASCRIPT on the input button to stop the controller from executing. This would be neater code than having a large if statement on the index controller. Only one if else statement is required and the code looks cleaner.</p>
+
+<p><img src="/assets/indexmainplan.PNG" alt="alt text" title=" Phase 2 plan " /></p>
+
+<p>Fig 4. Javascript plan to stop the controller executing when the button is pressed.</p>
+
+<p>What are my Obstacles?</p>
+
+<p>No major obstacles at the moment, lots of planning to do. Which is great because then most of the people are in the same boat and understand what is happening.</p>
+
+<p>What do I want to achieve?</p>
+
+<p>Complete the Javascript on the button</p>
+
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

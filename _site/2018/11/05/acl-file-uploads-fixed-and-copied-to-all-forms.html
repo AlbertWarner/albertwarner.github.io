@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/11/05/acl-file-uploads-fixed-and-copied-to-all-forms.html" /><!-- Title, description, author --><title>ACL File Uploads Fixed and Copied to All Forms  | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="ACL File Uploads Fixed and Copied to All Forms  | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/11/05/acl-file-uploads-fixed-and-copied-to-all-forms.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>ACL File Uploads Fixed and Copied to All Forms </h2>
+				<p>05 November 2018</p>
+			</header><p>We start off by grabbing Adon before having his coffee or getting into his office, I was intrigued to get this done and required help.</p>
+
+<p>Adon wanted to use the form tags and let ajax push up the files using those tags. Unfortunately, I’m using the form tags for the other ajax call which uploaded the user data to the DB, which makes it look automated.</p>
+
+<h3>New Ajax Uploading Files </h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;script&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'body'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="s1">'.upload'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+            <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+            <span class="c1">//var formData = new FormData($(this).parents('form')[0]);</span>
+            <span class="kd">var</span> <span class="nx">formData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">();</span>
+            <span class="kd">var</span> <span class="nx">parent</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">parents</span><span class="p">(</span><span class="s1">'.form-parent'</span><span class="p">);</span>
+            <span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">parent</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">"input[type=file]"</span><span class="p">);</span>
+            <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">f</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">files</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+              <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">"files[]"</span><span class="p">,</span><span class="nx">f</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">files</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+
+            <span class="kd">var</span> <span class="nx">acl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">parent</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">"input[name=AclNum]"</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+            <span class="kd">var</span> <span class="nx">filenames</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">parent</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">"input[name=filenames]"</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+
+            <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">"AclNum"</span><span class="p">,</span><span class="nx">acl</span><span class="p">);</span>
+            <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">"filenames"</span><span class="p">,</span><span class="nx">filenames</span><span class="p">);</span>
+
+            <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+                <span class="na">url</span><span class="p">:</span> <span class="s1">'./controllers/aircraftController.php'</span><span class="p">,</span>
+                <span class="na">type</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+                <span class="na">xhr</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                    <span class="kd">var</span> <span class="nx">myXhr</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">ajaxSettings</span><span class="p">.</span><span class="nx">xhr</span><span class="p">();</span>
+                    <span class="k">return</span> <span class="nx">myXhr</span><span class="p">;</span>
+                <span class="p">},</span>
+                <span class="na">success</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="c1">//alert("Data Uploaded: "+data);</span>
+                    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Files Uploaded "</span><span class="p">);</span>
+                    <span class="c1">//below line still todo</span>
+                    <span class="c1">//$(parent).find("input[type=file]").val("");</span>
+                    
+                <span class="p">},</span>
+                <span class="na">data</span><span class="p">:</span> <span class="nx">formData</span><span class="p">,</span>
+                <span class="na">cache</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="na">contentType</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="na">processData</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">});</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">});</span>
+    <span class="p">});</span>
+ 
+  <span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>The changes we implemented was the for loop, looping around the uploaded files, which I remember doing in the tutorial guide that I found but this for loop was situated in the external JS file. Then we use Jquery to find the input field name and ACL number (this is used to change the files name to the input field name so that the client knows what files have been uploaded)</p>
+
+<p>We used Jquery to grab the files that were uploaded with class name = form-parent.</p>
+
+<h3>New Input Fields </h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-parent"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"control-label  col-sm-3"</span><span class="nt">&gt;</span>Pilots licence <span class="nt">&lt;/label&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-5"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">name=</span><span class="s">"files[]"</span> <span class="na">multiple</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"filenames"</span> <span class="na">value=</span><span class="s">"PilotsLicence"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">name=</span><span class="s">"AclNum"</span> <span class="na">value=</span><span class="s">"</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$ACLNUM</span><span class="cp">?&gt;</span><span class="s">"</span> <span class="nt">&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+<p>The aircraft controller was not changed at all and it worked excellently. I copied the new ajax and controller information to all the other files. Then had to edit the input field, luckily most of the forms use the Aircraft’s files , so there were only a few modifications to do to other claim forms. This was bit boring but got it done.</p>
+
+<h3>Reflection </h3>
+
+<p>Nice to work with someone like Adon who can guide you and give you some help with more advanced technical work like ajax. Good day to get everything working.</p>
+
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

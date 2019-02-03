@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/09/03/url-to-client-and-maintenance.html" /><!-- Title, description, author --><title>URL to client and Maintenance | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="URL to client and Maintenance | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/09/03/url-to-client-and-maintenance.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>URL to client and Maintenance</h2>
+				<p>03 September 2018</p>
+			</header><p>This was an interesting but frustrating day, I got the full path I have been looking for, thank you <a href="https://stackoverflow.com/questions/6768793/get-the-full-url-in-php "> Stack Overflow get the full url</a>.</p>
+
+<h3>Output from above code from Stack Overflow </h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nx">http</span><span class="o">://</span><span class="nx">kate</span><span class="o">.</span><span class="nx">ict</span><span class="o">.</span><span class="nx">op</span><span class="o">.</span><span class="nx">ac</span><span class="o">.</span><span class="nx">nz</span><span class="o">/~</span><span class="nx">se17group1</span><span class="o">/</span><span class="nx">Development</span><span class="o">/</span><span class="nx">AlbertTesting</span><span class="o">/</span><span class="nx">NewACL</span><span class="o">/</span><span class="nx">AviationInsurance</span><span class="o">/</span><span class="nx">ACL</span><span class="o">/</span><span class="nx">adminForm</span><span class="o">.</span><span class="nx">php</span><span class="o">?</span><span class="nx">id</span><span class="o">=</span><span class="mi">55</span>
+</code></pre></div></div>
+
+<p>Yes, success but I need the “adminForm?id=” to be removed so that I can concatenate the “clientForm?id =” or” maintForm?id=”. This was a bit more complicated than thought, I was trying weird stuff and not getting it to work. 3 hours later, Martian came to see how we were doing and I explained the situation, he said maybe try split it on the “/” but then in the joining I was losing slashes etc and then he suggested substring. <a href="http://php.net/manual/en/function.substr.php"> PHP manual substring</a> thanks for the help Martian. This worked but ran into another problem if the id became large than 99 the substring would only remove a fixed amount of characters and this would cause an error if any characters were left behind.</p>
+
+<p>Spoke to Adon and explained what happened and he suggested the same thing with the array and he came to help.</p>
+
+<p>PHP has <a href="http://php.net/manual/en/function.parse-url.php"> Parse URL</a> which breaks up an URL into an array and it is very neat. You can get the hostname the path all broken up into an array. The problem with the path it was the full path which includes a few slashes and it might do on the production server as well, will be interesting to test. We used PHP explode to break up the path into another array and then we used <a href="http://php.net/manual/en/function.unset.php"> PHP uset</a> to remove the last number of the array which would hold the “adminform.php” which we wanted to remove.</p>
+
+<p>We used PHP implode to join the array back together with slashes. Tested it and it worked. Super excited to see it work and it was fun.</p>
+
+<h3>Full URL code </h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nv">$url</span> <span class="o">=</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'HTTPS'</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'HTTPS'</span><span class="p">]</span> <span class="o">===</span> <span class="s1">'on'</span> <span class="o">?</span> <span class="s2">"https"</span> <span class="o">:</span> <span class="s2">"http"</span><span class="p">)</span> <span class="o">.</span> <span class="s2">"://</span><span class="nv">$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]</span><span class="s2">"</span><span class="p">;</span>
+                    <span class="nv">$breakdown</span> <span class="o">=</span> <span class="nb">parse_url</span><span class="p">(</span><span class="nv">$url</span><span class="p">);</span> 
+                    <span class="c1">//var_dump($breakdown);</span>
+                    <span class="nv">$schem</span> <span class="o">=</span> <span class="nv">$breakdown</span><span class="p">[</span><span class="s1">'scheme'</span><span class="p">];</span>
+                    <span class="nv">$host</span> <span class="o">=</span> <span class="nv">$breakdown</span><span class="p">[</span><span class="s1">'host'</span><span class="p">];</span>
+                    <span class="nv">$path</span> <span class="o">=</span> <span class="nv">$breakdown</span><span class="p">[</span><span class="s1">'path'</span><span class="p">];</span>
+                    <span class="nv">$path</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span><span class="nv">$path</span><span class="p">);</span>   
+                    <span class="nb">unset</span><span class="p">(</span><span class="nv">$path</span><span class="p">[</span><span class="nb">sizeof</span><span class="p">(</span><span class="nv">$path</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
+                    <span class="nv">$path</span> <span class="o">=</span> <span class="nb">implode</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span><span class="nv">$path</span><span class="p">);</span>
+                    <span class="nv">$Newurl</span> <span class="o">=</span> <span class="nv">$schem</span><span class="o">.</span><span class="s2">"://"</span><span class="o">.</span><span class="nv">$host</span><span class="o">.</span><span class="nv">$path</span><span class="p">;</span>                                
+                    <span class="k">include_once</span> <span class="p">(</span><span class="nv">$selectQueriesUrl</span> <span class="o">.</span> <span class="s1">'selectQueries.php'</span><span class="p">);</span>
+                    <span class="nv">$client</span> <span class="o">=</span> <span class="s2">"/clientForm.php?id="</span><span class="p">;</span>
+                    <span class="nv">$maint</span> <span class="o">=</span> <span class="s2">"/mainForm.php?id="</span><span class="p">;</span>
+                    <span class="nv">$directoryClient</span> <span class="o">=</span> <span class="nv">$Newurl</span><span class="o">.</span><span class="nv">$client</span><span class="o">.</span><span class="nv">$hashedID</span><span class="p">;</span>
+                    <span class="nv">$directoryMaint</span> <span class="o">=</span> <span class="nv">$Newurl</span><span class="o">.</span><span class="nv">$maint</span><span class="o">.</span><span class="nv">$hashedID</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3>Reflection </h3>
+<p>Learning the new features such as the parse_url method breaks the url down in sub sections and the exploding the data into a array and removing the last slot of the array and then implode the data back together and it will always get right url was a great learn and fun peer programming with Adon, thank you.</p>
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

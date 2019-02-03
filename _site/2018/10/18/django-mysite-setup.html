@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/10/18/django-mysite-setup.html" /><!-- Title, description, author --><title>Django Mysite Setup   | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Django Mysite Setup   | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/10/18/django-mysite-setup.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>Django Mysite Setup  </h2>
+				<p>18 October 2018</p>
+			</header><p>Django is a smart framework (MVC) and can be complex to get your head around, but it has a few tutorials and videos on what to do and some interesting learning tips. Django is very similar to Flask but as explained you have to do the Django way, or it won’t work, Flask has more freedom to develop the way you want.</p>
+
+<p>I followed the <a href="https://docs.djangoproject.com/en/2.1/intro/tutorial01/">Django tutorial</a> and it was simple to start the application.</p>
+
+<p>I created the mysite project and created another app called “wwl” abbreviated for walking with Leon but since then I have heard the name of the app has changed, not to sure what to do but I will carry on for now and get hopefully most of it completed and displaying some dummy data and the names can change closer to .</p>
+
+<p>Getting back to work the mysite is the main web app and well is the sub app.</p>
+
+<p>The interesting part of the build will be the paths, going to be something fun to learn and get better at it and understand what is happening.</p>
+
+<p>For now, please note we will be using localhost, which is a development server which Django creates and it hosts the website.</p>
+
+<p>In the mysite/urls.py, we redirected the user when they hit the sites localhost address, the user will be directed to the wwl/urls.py which then will direct the user to a webpage.</p>
+
+<h3> Mysite – urls.py file paths </h3>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="nf">contrib</span> <span class="n">import</span> <span class="n">admin</span>
+<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="nf">urls</span> <span class="n">import</span> <span class="kp">include</span><span class="p">,</span> <span class="n">path</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">'admin/'</span><span class="p">,</span> <span class="n">admin</span><span class="p">.</span><span class="nf">site</span><span class="p">.</span><span class="nf">urls</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="kp">include</span><span class="p">(</span><span class="s1">'wwl.urls'</span><span class="p">)),</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p>The urls.py file in WWL will call in index method created in the views.py file</p>
+
+<h3> WWL – urls.py file </h3>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="n">views</span><span class="p">.</span><span class="nf">index</span><span class="p">,</span> <span class="nb">name</span><span class="o">=</span><span class="s1">'index'</span><span class="p">),</span>
+</code></pre></div></div>
+
+<p>For testing purpose, I created a method in the views.py file which displayed template with “Hello World” written on it.</p>
+
+<h3> View.py Hello World </h3>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="no">HttpResponse</span> <span class="p">(</span><span class="s2">"&lt;h1&gt;Hello World&lt;/h1&gt;"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3>Reflection</h3>
+<p>Setting up Django is pretty easy with the commands. It takes almost 3 commands and website is setup and working for you, well the server that is. The file paths are going to be a interesting learn but I will get my head around it.</p>
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

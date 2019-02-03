@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/10/01/the-acl-user-update.html" /><!-- Title, description, author --><title>The ACL User Update  | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="The ACL User Update  | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/10/01/the-acl-user-update.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>The ACL User Update </h2>
+				<p>01 October 2018</p>
+			</header><p>One of the new features that Derek wanted was when a user opens the form and saves the document etc. The user that last updated the document would display on the index page. It will be a reference for him to check how far the client is with the form.</p>
+
+<p>When I first created this feature it was easy,I created an extra Column in the incident table and created an updated query that would update which user had opened or save the document. Wow, was that it? ha-ha nope, showed it to Adon and he said it was ok but when the user creates a PDF, the client or the maintenance should not be able to view the page if they logged in at a later stage.</p>
+
+<p>I thought a numbering system, would be the best path to solving this problem.</p>
+
+<p>1 -2: Admin update or create a page</p>
+
+<p>3: Client open claim form or submitted completed form</p>
+
+<p>4: Maintenance open claim form or submitted completed form</p>
+
+<p>5: Document completed, and PDF saved</p>
+
+<p>Created a second Column in the DB and stored the number and a string every time a user opened or saved the document.</p>
+
+<p>So here is a breakdown of the code:</p>
+
+<p>First, I create 2 functions, first function gets the number currently stored in the DB</p>
+
+<h3>Select Query Function</h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+ <span class="k">function</span> <span class="nf">query_information</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span><span class="nv">$incidentID</span><span class="p">)</span>
+ <span class="p">{</span>
+        <span class="k">try</span><span class="p">{</span>
+        <span class="c1">//  $incidentID = clean_input($_POST['incidentID']);</span>
+         <span class="nv">$selectQuery</span> <span class="o">=</span> <span class="s2">"SELECT lastupdate FROM incident WHERE id = '</span><span class="nv">$incidentID</span><span class="s2">'"</span><span class="p">;</span>
+         <span class="nv">$check</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$selectQuery</span><span class="p">);</span>
+         <span class="nv">$check</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+         <span class="nv">$number</span> <span class="o">=</span> <span class="nv">$check</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">();</span>
+         <span class="nv">$value</span> <span class="o">=</span> <span class="nv">$number</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'lastupdate'</span><span class="p">];</span>
+         <span class="k">return</span> <span class="nv">$value</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="nx">PDOEXCEPTION</span> <span class="nv">$e</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="nv">$error</span> <span class="o">=</span> <span class="s1">'Select incident lastupdate error'</span><span class="p">;</span>
+        <span class="k">include_once</span> <span class="p">(</span><span class="s1">'./views/error/error.html.php'</span><span class="p">);</span>
+        <span class="k">exit</span><span class="p">();</span>
+        <span class="p">}</span>
+ <span class="p">}</span>
+<span class="cp">?&gt;</span>
+</code></pre></div></div>
+
+<p>The second function takes an 2D array which contains a string value and a number value, which is updated to the database.</p>
+
+<h3>Update Function</h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">query_update</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span><span class="nv">$updateInfo</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">try</span><span class="p">{</span>
+            <span class="nv">$updateQuery</span> <span class="o">=</span> <span class="s2">"UPDATE incident SET
+            lastupdateBy = :lastupdateBy,
+            lastupdate = :lastupdate,
+            dateCreated = dateCreated
+            WHERE  id = :id"</span><span class="p">;</span> 
+            <span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$updateQuery</span><span class="p">);</span>
+            <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span><span class="nv">$updateInfo</span><span class="p">);</span> 
+    <span class="p">}</span>
+    <span class="k">catch</span><span class="p">(</span><span class="nx">PDOEXCEPTION</span> <span class="nv">$e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$error</span> <span class="o">=</span> <span class="s1">'Update incident lastupdate error'</span><span class="p">;</span>
+        <span class="k">include_once</span> <span class="p">(</span><span class="s1">'./views/error/error.html.php'</span><span class="p">);</span>
+        <span class="k">exit</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span>
+</code></pre></div></div>
+<p>The first function gets a numeric value, and this stored in variable, then an if statement compares whether the variable is less than 5 then update function adds new information to the DB. If Derek has printed the PDF, then the DB is updated with the number 5. When the if statement is false the client/maintenance user is directed to closed page, but Derek can still access the claim form.</p>
+
+<h3>The user update working</h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">elseif</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$client</span><span class="p">)</span> <span class="o">==</span><span class="kc">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">include_once</span> <span class="p">(</span><span class="nv">$selectQueriesUrl</span> <span class="o">.</span> <span class="s1">'selectQueries.php'</span><span class="p">);</span>
+        <span class="nv">$newUpdate</span> <span class="o">=</span> <span class="nb">date</span><span class="p">(</span><span class="s2">"Y-m-d H:i:s"</span><span class="p">);</span>
+        <span class="nv">$checkingValue</span> <span class="o">=</span> <span class="nx">query_information</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span><span class="nv">$incidentID</span><span class="p">);</span>
+                <span class="k">if</span><span class="p">(</span><span class="nv">$checkingValue</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="nv">$lastupdatestring</span> <span class="o">=</span> <span class="s2">"CLIENT Opened Form "</span><span class="o">.</span><span class="nv">$newUpdate</span><span class="p">;</span>
+                        <span class="nv">$lastupdatenumber</span> <span class="o">=</span> <span class="s1">'3'</span><span class="p">;</span>
+                        <span class="nv">$updateInfo</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'id'</span> <span class="o">=&gt;</span> <span class="nv">$incidentID</span><span class="p">,</span><span class="s1">'lastupdateBy'</span> <span class="o">=&gt;</span> <span class="nv">$lastupdatestring</span><span class="p">,</span> <span class="s1">'lastupdate'</span> <span class="o">=&gt;</span> <span class="nv">$lastupdatenumber</span><span class="p">);</span>
+                        <span class="nx">query_update</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span><span class="nv">$updateInfo</span><span class="p">);</span>
+                        <span class="nv">$page</span> <span class="o">=</span> <span class="s1">'aircraft'</span><span class="p">;</span>
+                        <span class="k">include_once</span> <span class="p">(</span><span class="nb">dirname</span><span class="p">(</span><span class="nx">__DIR__</span><span class="p">)</span> <span class="o">.</span> <span class="s1">'/mainC.php'</span><span class="p">);</span> 
+                    <span class="p">}</span>
+                    <span class="k">else</span><span class="p">{</span>
+                        <span class="nv">$page</span> <span class="o">=</span> <span class="s1">'closed'</span><span class="p">;</span>
+                        <span class="k">include_once</span> <span class="p">(</span><span class="nb">dirname</span><span class="p">(</span><span class="nx">__DIR__</span><span class="p">)</span> <span class="o">.</span> <span class="s1">'/mainC.php'</span><span class="p">);</span> 
+                    <span class="p">}</span>
+        
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Nice to see this working and doing what is required. This can be implemented on the other forms and should work well.</p>
+
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

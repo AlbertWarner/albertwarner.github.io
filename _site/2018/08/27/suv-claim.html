@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/08/27/suv-claim.html" /><!-- Title, description, author --><title>SUV Claim | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="SUV Claim | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/08/27/suv-claim.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>SUV Claim</h2>
+				<p>27 August 2018</p>
+			</header><p>The SUV claim form had some differences to the normal forms, I copied the insert functions from the other forms, but the form required extra equipment insert functions.</p>
+
+<h3>Insert Functions for Equipment </h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nx">createEquipment</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span><span class="nv">$incidentID</span><span class="p">,</span><span class="s2">"Loss"</span><span class="p">);</span>
+                    <span class="nx">createEquipment</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span><span class="nv">$incidentID</span><span class="p">,</span><span class="s2">"Associated"</span><span class="p">);</span>
+                    <span class="nx">createEquipment</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span><span class="nv">$incidentID</span><span class="p">,</span><span class="s2">"Hired"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>I had to create the following sections on the SUV claim form:</p>
+
+<h3>Sections on claim form created </h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c">&lt;!--Witnesses--&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formSuvUrl</span> <span class="o">.</span> <span class="s1">'witness.php'</span><span class="p">);</span><span class="cp">?&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formSuvUrl</span> <span class="o">.</span> <span class="s1">'witnessDetails.php'</span><span class="p">);</span><span class="cp">?&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formSuvUrl</span> <span class="o">.</span> <span class="s1">'lossOrDamage.php'</span><span class="p">);</span><span class="cp">?&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formSuvUrl</span> <span class="o">.</span> <span class="s1">'associatedEquip.php'</span><span class="p">);</span><span class="cp">?&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formSuvUrl</span> <span class="o">.</span> <span class="s1">'hiredEquip.php'</span><span class="p">);</span><span class="cp">?&gt;</span>
+        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"text-center"</span><span class="nt">&gt;</span>Third party property damage or injury<span class="nt">&lt;/h3&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formComponentUrl</span> <span class="o">.</span> <span class="s1">'thirdPartyContactDetails.php'</span><span class="p">);</span><span class="cp">?&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formSuvUrl</span><span class="o">.</span><span class="s1">'thirdPartyDetails.php'</span><span class="p">)</span> <span class="cp">?&gt;</span>
+        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"text-center"</span><span class="nt">&gt;</span>Additional Information<span class="nt">&lt;/h3&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formSuvUrl</span> <span class="o">.</span> <span class="s1">'propertyDamage.php'</span><span class="p">);</span><span class="cp">?&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formSuvUrl</span><span class="o">.</span><span class="s1">'attachFiles.php'</span><span class="p">);</span><span class="cp">?&gt;</span>                         
+        <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"text-center"</span><span class="nt">&gt;</span>Declaration<span class="nt">&lt;/h2&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formComponentUrl</span> <span class="o">.</span> <span class="s1">'declaration.php'</span><span class="p">);</span><span class="cp">?&gt;</span>
+</code></pre></div></div>
+
+<p>For the witness components, I copied passengers from the aircraft components and edit the headings to say witness.</p>
+
+<p>To start off while looking at the extra equipment fields there are two fields in the DB not accounted for, meaning I have no place to store the data from 2 input fields of the equipment, so I had to manually add “Manufactured by” and “Additional Information” columns to the Database and don’t forget the setup file, which builds the DB from scratch, otherwise errors will fly like the wind.</p>
+
+<p>For the extra equipment fields such loss or Damage etc, I had to add extra select queries, but the equipment table has an associative table, which deals with the many to many relationships from incident to equipment. I did one query and it produced all the information required for the different input fields on the HTML.</p>
+
+<h3>Equipment Query </h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$generalQuery43</span><span class="o">=</span><span class="s2">"SELECT * FROM equipment JOIN incidentEquipment ON equipment.id = incidentEquipment.equipmentID WHERE incidentEquipment.incidentID = </span><span class="nv">$incidentID</span><span class="s2"> "</span><span class="p">;</span>
+                                            <span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$generalQuery43</span><span class="p">);</span>
+                                            <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>  
+                                            <span class="nv">$generalResult43</span> <span class="o">=</span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">();</span>
+
+</code></pre></div></div>
+
+<h3>Out from above query </h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nv">$LossequipID</span> <span class="o">=</span> <span class="nv">$generalResult43</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">'id'</span><span class="p">];</span>
+                                            <span class="nv">$LossequipType</span> <span class="o">=</span> <span class="nv">$generalResult43</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">'type'</span><span class="p">];</span> 
+                                            <span class="nv">$LossequipMake</span> <span class="o">=</span> <span class="nv">$generalResult43</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">'make'</span><span class="p">];</span>
+                                            <span class="nv">$LossequipModel</span> <span class="o">=</span> <span class="nv">$generalResult43</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">'model'</span><span class="p">];</span>
+                                            <span class="nv">$LossequipSerial</span> <span class="o">=</span> <span class="nv">$generalResult43</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">'serialNum'</span><span class="p">];</span>
+                                            <span class="nv">$LossequipYear</span> <span class="o">=</span> <span class="nv">$generalResult43</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">'yearOfManufacture'</span><span class="p">];</span>
+                                            <span class="nv">$LossequipDesc</span> <span class="o">=</span> <span class="nv">$generalResult43</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">'description'</span><span class="p">];</span>
+                                            <span class="nv">$LossequipManu</span> <span class="o">=</span> <span class="nv">$generalResult43</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">'manufacturer'</span><span class="p">];</span>
+</code></pre></div></div>
+
+<p>Very nice to do one query and get all the information that I was looking for out, not like on the comments query where I had to do 4 separate queries on the same table.</p>
+
+<p>In the models I had edit the equipment file to add an extra update function to handle the new data going to the DB, I could have modified the previous one but thought I might need to edit all the other controllers and create variables with hard-coded strings to pass to the DB for the 2 additional fields added. Lots of work though, why not create a new function that only this controller will call.</p>
+
+<h3>Update Equipment Function </h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">function</span>  <span class="nf">updateEquipment2</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span><span class="nv">$equipment</span><span class="p">)</span>
+ <span class="p">{</span>
+         <span class="nv">$updateQuery</span> <span class="o">=</span> <span class="s2">"UPDATE equipment SET
+            type = :type,
+            make = :make,
+            model = :model,
+            serialNum = :serialNum,
+            yearOfManufacture = :yearOfManufacture,
+            description = :description,
+            manufacturer = :manufacturer
+            WHERE  id = :id "</span><span class="p">;</span> 
+            <span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$updateQuery</span><span class="p">);</span>
+            <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span><span class="nv">$equipment</span><span class="p">);</span> 
+ <span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>The controller worked great and the SUV claim form pushed to and pulled from the DB with no problems</p>
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

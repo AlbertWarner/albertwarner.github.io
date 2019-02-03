@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/08/17/hangar-keepers-form.html" /><!-- Title, description, author --><title>Hangar Keepers Form | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Hangar Keepers Form | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/08/17/hangar-keepers-form.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>Hangar Keepers Form</h2>
+				<p>17 August 2018</p>
+			</header><p>To start off, this seemed to be a straightforward form, most of the work had been completed in the aircraft form and helicopter form and I could copy that work into this one. It would not be that easy. I started off by opening an older version of files, just in case some of the forms were changed and the forms looked incorrect. When our client Derek looks at the forms, he can give us feedback about the forms, if they are incorrect or if there are changes to be made.</p>
+
+<p>On the index controller, I add the functions to create empty columns in the DB for the Hangar Keeper to update.</p>
+<h3>Index Controller </h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">case</span> <span class="s2">"hangarkeepers"</span><span class="o">:</span>
+                    <span class="nv">$contactID</span> <span class="o">=</span> <span class="nx">createPerson</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span><span class="s2">"Contact_Person"</span><span class="p">);</span>
+                    <span class="nv">$engineerID</span> <span class="o">=</span> <span class="nx">createPerson</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span><span class="s2">"engineer"</span><span class="p">);</span>
+                    <span class="nv">$pilotPersonID</span> <span class="o">=</span> <span class="nx">createPerson</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span><span class="s2">"pilot"</span><span class="p">);</span> <span class="c1">//no owner table but pilot is used to connect equipment ect</span>
+                    <span class="nv">$pilotID</span> <span class="o">=</span> <span class="nx">createPilot</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span> <span class="nv">$pilotPersonID</span><span class="p">);</span>
+                    <span class="nv">$insuredID</span> <span class="o">=</span> <span class="nx">createInsured</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span><span class="s2">"Hanger keepers"</span><span class="p">);</span>
+                    <span class="nv">$insurerID</span><span class="o">=</span><span class="nx">createInsurer</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span><span class="nv">$insuredID</span><span class="p">);</span>
+                    <span class="nv">$incidentID</span><span class="o">=</span> <span class="nx">createIncident</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span><span class="nv">$insuredID</span><span class="p">,</span><span class="nv">$contactID</span><span class="p">,</span> <span class="nv">$engineerID</span><span class="p">,</span><span class="nv">$pilotID</span><span class="p">,</span><span class="nv">$id</span><span class="p">,</span><span class="s1">'0'</span><span class="p">);</span>
+                    <span class="nv">$equipmentID</span> <span class="o">=</span> <span class="nx">createEquipment</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span><span class="nv">$incidentID</span><span class="p">,</span><span class="s2">"Hanger_keepers"</span><span class="p">);</span>
+                    <span class="nx">createEquipment</span><span class="p">(</span><span class="nv">$pdo</span><span class="p">,</span><span class="nv">$incidentID</span><span class="p">,</span><span class="s2">"Component"</span><span class="p">);</span>
+
+</code></pre></div></div>
+<p>As you can see in the above comment there wasn’t a spot for Owners details in the DB, but a small light Bulb of an idea appeared to me. The DB has an incident table which requires a pilot ID, this allows the incident to know who the pilot is, but this form does not require the information of the pilots, so I used the pilot table to hold the owner’s details.
+While updating the claim form I noticed most of its fields were exactly the same as the aircraft form</p>
+
+<h3>Hangar Keepers Claim Form </h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+		<span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formComponentUrl</span><span class="o">.</span><span class="s1">'url.php'</span><span class="p">);</span><span class="cp">?&gt;</span>
+         <span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formComponentUrl</span><span class="o">.</span><span class="s1">'contact.php'</span><span class="p">);</span><span class="cp">?&gt;</span>
+         <span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formComponentUrl</span><span class="o">.</span> <span class="s1">'insuranceDetails.php'</span><span class="p">);</span><span class="cp">?&gt;</span>
+           <span class="c">&lt;!-- Aircraft/ Component Liability Details Section--&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"anchor"</span> <span class="na">id=</span><span class="s">"anch3"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;h2</span> <span class="na">class= </span><span class="s">"text-center"</span><span class="nt">&gt;</span>Aircraft / Component Liability Details<span class="nt">&lt;/h2&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formHangarUrl</span><span class="o">.</span><span class="s1">'component2.php'</span><span class="p">);</span><span class="cp">?&gt;</span>
+            <span class="c">&lt;!-- Aircraft owners contact details Subsection--&gt;</span>
+            <span class="nt">&lt;h3</span> <span class="na">class= </span><span class="s">"text-center"</span><span class="nt">&gt;</span>Aircraft owners contact details<span class="nt">&lt;/h3&gt;</span>
+            <span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formHangarUrl</span><span class="o">.</span><span class="s1">'owner.php'</span><span class="p">);</span><span class="cp">?&gt;</span>
+           <span class="c">&lt;!-- Maintenance Being Performed Subsection--&gt;</span>
+            <span class="nt">&lt;h3</span> <span class="na">class= </span><span class="s">"text-center"</span><span class="nt">&gt;</span>Maintenance being performed<span class="nt">&lt;/h3&gt;</span>
+             <span class="cp">&lt;?php</span> <span class="k">include_once</span> <span class="p">(</span><span class="nv">$formLiabilityUrl</span><span class="o">.</span><span class="s1">'maintenance.php'</span><span class="p">);</span><span class="cp">?&gt;</span>
+  
+</code></pre></div></div>
+<p>In the above code you can see the $formComponentUrl points to the aircraft components and even the $formLiabilityUrl points to the Liability components. I found the components already created in liability for maintenance section, so I thought a good win for me I don’t need to create much. The only 2 sections that were required was components and owner’s details.
+The Controller was also straightforward because I copied most of the variables and post information from the aircraft controller, just needed to do some modifications for component fields and for the owner fields, I copied the pilots(which was used to push the owners data)update person from the aircraft controller.</p>
+
+<h3>Component Query </h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Get the Component details</span>
+<span class="nv">$generalQuery29</span><span class="o">=</span><span class="s2">"SELECT * FROM equipment JOIN incidentEquipment on equipment.id = incidentEquipment.equipmentID 
+WHERE incidentEquipment.incidentID=</span><span class="nv">$incidentID</span><span class="s2"> AND equipment.name = 'Component'"</span><span class="p">;</span>
+<span class="c1">//Prepare the select statement.</span>
+<span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$generalQuery29</span><span class="p">);</span>
+<span class="c1">//Execute the statement</span>
+<span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span> 
+<span class="nv">$generalResult29</span> <span class="o">=</span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fetchAll</span><span class="p">();</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$generalResult29</span><span class="p">)){</span>
+<span class="nv">$componentID</span> <span class="o">=</span> <span class="nv">$generalResult29</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'id'</span><span class="p">];</span>
+<span class="nv">$airTypeC</span> <span class="o">=</span> <span class="nv">$generalResult29</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'type'</span><span class="p">];</span>
+<span class="nv">$airMakeC</span> <span class="o">=</span> <span class="nv">$generalResult29</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'make'</span><span class="p">];</span> 
+<span class="nv">$airModelC</span> <span class="o">=</span> <span class="nv">$generalResult29</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'model'</span><span class="p">];</span>
+<span class="nv">$airSerialNumC</span> <span class="o">=</span> <span class="nv">$generalResult29</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'serialNum'</span><span class="p">];</span>
+<span class="nv">$airYearOfManufactureC</span> <span class="o">=</span> <span class="nv">$generalResult29</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'yearOfManufacture'</span><span class="p">];</span>
+<span class="nv">$descriptionCom</span> <span class="o">=</span> <span class="nv">$generalResult29</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'description'</span><span class="p">];</span>
+<span class="nv">$manufacturer</span> <span class="o">=</span> <span class="nv">$generalResult29</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'manufacturer'</span><span class="p">];</span>
+</code></pre></div></div>
+<p>In the Select Queries file, I added the above code to get data to display in HTML components.
+Testing problems
+When testing I tried to create a Hangar Keepers form and hit errors. The names of the forms were not aligning up with what was in the database. On the index controller, there is already a query that gets the form name and does a switch on that name, I echo it out and got Hanger Keepers, but the forms are called Hangar Keepers. Someone must have been thinking about their washing instead of a Hangar. I changed the pages.csv which is a file been read in when the database is created. I manually changed the DB because Matt was still working on PDF’s and required some data. Everything worked great.</p>
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

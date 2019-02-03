@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/08/05/ajax-jquery.html" /><!-- Title, description, author --><title>Ajax/jQuery | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ajax/jQuery | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/08/05/ajax-jquery.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>Ajax/jQuery</h2>
+				<p>05 August 2018</p>
+			</header><p>This was a fun learning experience.</p>
+
+<p><img src="/assets/images/Project2/ajax.jpg" alt="ajax" /></p>
+
+<p>Image 1. Ajax/jQuery pushing data to the DB with a submit button pressed</p>
+
+<p>As you can see in Image 1, there is a lot of code commenting out because there were a few different trial and errors.</p>
+
+<p>Two websites that helped resolve the problem was:</p>
+
+<p><a href="https://stackoverflow.com/questions/26523448/submitting-hidden-input-values-with-jquery-post-empty-db-columns-and-notice-u"> Stack Overflow 1</a></p>
+
+<p><a href="https://stackoverflow.com/questions/36681132/jquery-post-all-form-data-onblur-from-specific-form"> Stack Overflow 2</a></p>
+
+<p>I didn’t understand the PHP serialize 100 % so I did some research and found Image 2 explained it nicely:</p>
+
+<p><img src="/assets/images/Project2/serialize.JPG" alt="serialize" /></p>
+
+<p>Image 2. Serialized explained</p>
+
+<p>On the controller end, there was a slight problem because the IF post “Submit Button” was not going to work because there wasn’t a button been pressed to save the data.</p>
+
+<p>I moved the if post “pdf button” to the top of the if-else statement meaning if the pdf button was pressed it created the pdf else post data to the DB.</p>
+
+<p>The Queries are working and data is pushing to the Database on blur function, which means when the user clicks out of the input field it pushes data to the DB</p>
+
+<h3>Reflection</h3>
+<p>Learned a lot about Ajax and how it takes the input data and post the information to the DB without a button been pressed. Very Impressed to see it work. The data sent is serialized data which is like a JSON file(Best way to explain it in my mind) being pushed to the controller.</p>
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/03/26/index-controller-and-client-form.html" /><!-- Title, description, author --><title>Index Controller and Client Form | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Index Controller and Client Form | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/03/26/index-controller-and-client-form.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>Index Controller and Client Form</h2>
+				<p>26 March 2018</p>
+			</header><p>To start, we had Zoe and Matt join the ACL project because their project was moved to Software Engineering. Will be great to have them back and put them to work immediately before they are moved to another project. With phase 2 explained to them we sat as a group and discussed which member can do what. The Report HTML forms have to be made from scratch, with the extra manpower this would be a great opportunity to get that work out of the way.</p>
+
+<p><img src="/assets/teamplan.JPG" alt="alt text" title=" team plan " /></p>
+
+<p>Fig 1. The group plans which form they are doing and what is still required to make this a fully functional site</p>
+
+<p>What have I done?</p>
+
+<p>This was a very interesting afternoon and loads of fun. To get started I was working on the Javascript to stop the button for submitting the query to the controller. Busy doing some research and didn’t notice Adon watching, he stopped and showed how the button should work. The plan had changed instead of using Javascript, we used jQuery. We found a website that helped us solve a problem we were having because the if the statement was working (we tested it by showing the information on the DOM) but the form was not submitting when the correct claim form was selected from the drop-down menu.</p>
+
+<p><img src="/assets/jquery.JPG" alt="alt text" title=" jquery " /></p>
+
+<p>Fig 2. Solution to our JQuery problem and the button controls if the document proceeds or not</p>
+
+<p>Thank you, Adon for the support and guidance.</p>
+
+<p>Abdel joined me, and we started to work on the query to get the name of the claim form from the  DB, this would allow us to move from the index page to the page selected on the drop-down. The problem was the information was sitting in the array and we were trying PHP explode to gain the information out of the array and store into a variable. Adon to the rescue again and it was a simple fix as shown in Fig 3.</p>
+
+<p><img src="/assets/array.JPG" alt="alt text" title=" array " /></p>
+
+<p>Fig 3. Getting the information out of the array to be stored in a variable</p>
+
+<p>We were then able to move from the index page to the aircraft claim form.</p>
+
+<p>Next, we used the insert query I created on Monday 19/03/2018 to insert the form ID into the incident table and return an ID, this ID was used to create the ACL number, and this was then displayed on the aircraft claim form.</p>
+
+<p><img src="/assets/acl.JPG" alt="alt text" title=" acl " /></p>
+
+<p>Fig 4. Creating the ACL number</p>
+
+<p>I had to show off a little to Tom our security in the PHP, we are using binding paramotors and a clean code function. He was very impressed and noted we could do the clean code function with a library. But there was a loophole in the drop-down query, if you opened the DOM, a hacker could insert code into value on the HTML and this would pass to the query. Security will need to improve.</p>
+
+<p>We moved onto the client form and reverse engineered the index controller select query to gain the information of which form to move to. The form gets the ID (We tested by inserting the ID in the address bar) and this does a query to get the form name and then moves to that form.</p>
+
+<p>The images show how the code works.</p>
+
+<p><img src="/assets/claim.JPG" alt="alt text" title=" claim plan " /></p>
+
+<p>Fig 5. The claim form code</p>
+
+<p><img src="/assets/clientform.PNG" alt="alt text" title=" Client form " /></p>
+
+<p>Fig6. Showing the cleintForm.php not working but actually, it only requires the ID</p>
+
+<p><img src="/assets/clientformwithid.PNG" alt="alt text" title=" client form with ID " /></p>
+
+<p>Fig7. ID inserted into the Address bar and the aircraft claim form is found</p>
+
+<p>What are my Obstacles?</p>
+
+<p>Not an obstacle, just a statement: Mind blowing how this code works and interesting and amazing to see it work. Still got a lot to do, the fun isn’t over yet.</p>
+
+<p>What do I want to achieve?</p>
+
+<p>Hash the ID Number and created a hash column in the DB to store the hash. I need to create the Report HTML that was assigned to me.</p>
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>

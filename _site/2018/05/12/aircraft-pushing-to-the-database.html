@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<!--
+Prologue by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Jekyll integration by Chris Bobbe | chrisbobbe.github.io
+-->
+<html><head><!-- Robots -->
+  <meta name="robots" content="index, follow" /><link rel="canonical" href="http://localhost:4000/2018/05/12/aircraft-pushing-to-the-database.html" /><!-- Title, description, author --><title>Aircraft Pushing to the Database | Albert Warner - Online Portfolio</title>
+  <meta name="description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  <meta name="author" content="Albert Warner" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Aircraft Pushing to the Database | Albert Warner - Online Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/albert.JPG" />
+  <meta property="og:url" content="http://localhost:4000/2018/05/12/aircraft-pushing-to-the-database.html" />
+  <meta property="og:site_name" content="Albert Warner" />
+  <meta property="og:description" content="Welcome to my Third year Project blog.  I joined the Web Development team and this is my Journey through this project." />
+  
+  <!-- Styles -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js" defer></script><![endif]-->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+  <script src="/assets/js/jquery.scrolly.min.js" defer></script>
+  <script src="/assets/js/jquery.scrollzer.min.js" defer></script>
+  <script src="/assets/js/skel.min.js" defer></script>
+  <script src="/assets/js/util.js" defer></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js" defer></script><![endif]-->
+  <script src="/assets/js/main.js" defer></script>
+
+</head><body><!-- Header -->
+<div id="header">
+  <div class="top"><!-- Logo -->
+<div id="logo">
+  <a href="http://localhost:4000/" id="home-link">
+    <span class="image avatar48"><img src="/assets/images/albert.JPG" alt="Avatar of Albert Warner" /></span>
+    <h1 id="title">Albert Warner</h1>
+    <p>Online Portfolio</p>
+  </a>
+</div><!-- Nav -->
+<nav id="nav">
+  <ul><li><a href="http://localhost:4000/" id="my-home-page-link">
+            <span class="icon fa-home">My Home Page</span>
+          </a></li><li><a href="http://localhost:4000/blog.html" id="project-1-2-link">
+            <span class="icon fa-pencil">Project 1 & 2</span>
+          </a></li></ul>
+</nav></div>
+  <div class="bottom"><!-- Social Icons -->
+<ul class="icons"><li><a href="https://www.linkedin.com/in/albert-warner-120a6074/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li><li><a href="http://github.com/AlbertWarner" class="icon fa-github"><span class="label">GitHub</span></a></li><li><a href="mailto:warnaa1@student.op.ac.nz" class="icon fa-envelope"><span class="label">Email</span></a></li></ul>
+</div>
+</div>
+<!-- Main -->
+<div id="main">
+	<!-- Post -->
+	<article class="shade-two">
+	  <div class="container">
+			<header>
+				<h2>Aircraft Pushing to the Database</h2>
+				<p>12 May 2018</p>
+			</header><p>Let us begin with a celebration of Abdel’s great work. I would never think that I could smile that much seeing data being pushed to the database.</p>
+
+<p>As I said in the <a href=" https://warnaa1.pages.op-bit.nz/2018/05/12/aircraft-claim-form-with-the-new-file-structure.html"> Aircraft claim form with the new file structure</a>, post, it seems to be a connection problem and did I hit the name on the head.</p>
+
+<p>This will be a bit long but the only way I can explain it, the index controller calls the aircraft controller, that controller calls the main and the main builds up the aircraft page by calling the different sections it required and makes the page look like an actual page. Then the user fills in his data and submits the data back to the controller which pushes the data to the DB but by the time it gets there, it seems to lose its DB connection. Abdel tested by adding the DB connection into the controller and it worked, data was pushed to the DB.</p>
+
+<p><img src="/assets/problemsolved.JPG" alt="alt text" title=" problem solved " /></p>
+
+<p>Figure 1. The database connection – this code is also found in the connect.php</p>
+
+<p>We added the DB connect.php files to the controller’s directory and added an include at the beginning of the controller and all seems to work well, it might bite us later especially with Adon because I don’t think is supposed to work like this but maybe we will get a workaround at a later stage.</p>
+
+<p>Abdel, Arron and I were having a discussion that the master repo on Gitlab needs to be updated with our new file structure because it was very behind, and we need to sort out any errors that might appear now before any more major changes happen. I updated the development branch from Albert’s branch and took the leap of faith. I pushed the development branch into the master branch and was I shocked when I saw the green tick to merge development into master and no errors…Say that again No errors, yes not one, the master accepted everything, and I didn’t need to remove anything.</p>
+
+<p><img src="/assets/slack.jpg" alt="alt text" title=" slack " /></p>
+
+<p>Figure 2. Slack message to the team with the successful changes</p>
+
+</div>
+	</article>
+</div><!-- Footer -->
+<div id="footer">
+  
+  <!-- Copyright -->
+  <ul class="copyright">
+    
+      <li>&copy;Albert Warner. All rights reserved.</li>
+    
+    <li>Git Hub Link: <a href="http://github.com/AlbertWarner">Albert Warner</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/albert-warner-120a6074/">Albert Warner</a></li>
+  </ul>
+  
+</div></body>
+</html>
